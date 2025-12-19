@@ -1,3 +1,12 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Godot
+.import/
+.export/
+*.import
+
+# OS
+.DS_Store
+Thumbs.db
