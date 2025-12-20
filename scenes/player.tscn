@@ -1,9 +1,9 @@
 [gd_scene load_steps=32 format=3 uid="uid://nq08bsoe8dk1"]
 
 [ext_resource type="Script" uid="uid://dxnivi1u0l25o" path="res://scripts/player.gd" id="1_dqkch"]
-[ext_resource type="Texture2D" uid="uid://dpr5jssoy2jgg" path="res://assets/Top down RPG characters - V1.01/Top down RPG - V1.01/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dyuoayy43nuoy" path="res://assets/Top down RPG characters - V1.01/Top down RPG - V1.01/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://cf2rcmyacgdx6" path="res://assets/Top down RPG characters - V1.01/Top down RPG - V1.01/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dpr5jssoy2jgg" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dyuoayy43nuoy" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cf2rcmyacgdx6" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_qhqgy")
@@ -222,10 +222,10 @@ script = ExtResource("1_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(76, 82.5)
+position = Vector2(77, 82.5)
 scale = Vector2(3.375, 3.578125)
 sprite_frames = SubResource("SpriteFrames_wnwbv")
-animation = &"idle_back"
+animation = &"idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(76, 75)

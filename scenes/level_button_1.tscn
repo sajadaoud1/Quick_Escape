@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8j3qlhwltivn"]
 
-[ext_resource type="Texture2D" uid="uid://dnae1s5lyy7q3" path="res://assets/locked.png" id="1_alukm"]
-[ext_resource type="Script" uid="uid://ci8b33pronmqi" path="res://scripts/level_button.gd" id="1_yugfd"]
+[ext_resource type="Texture2D" uid="uid://dnae1s5lyy7q3" path="res://assets/Menu/locked.png" id="1_alukm"]
+[ext_resource type="Script" path="res://scripts/level_button.gd" id="1_yugfd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3shnc"]
 corner_radius_top_left = 15
