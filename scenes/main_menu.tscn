@@ -1,0 +1,177 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb60y81jjpxud"]
+
+[ext_resource type="Script" uid="uid://cxqmcc1ejy5yq" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://bqfhqm7m6j8e8" path="res://assets/background.jpg" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://beyoq2uw4pqvl" path="res://assets/game_logo_2.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://bhmvtpvdntdht" path="res://music/Adventure pack 1 ogg/arcade.ogg" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://buma3pviv3sav" path="res://scripts/audio_control.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://dhxn8w1ks0j7" path="res://scripts/fullscreen_control.gd" id="6_rtw2f"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8ln24"]
+color = Color(0.25479412, 0.47146314, 0.9876061, 1)
+thickness = 6
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 99.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -147.0
+offset_right = 210.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bqqt6")
+
+[node name="MainBtn" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 312.0
+offset_right = 777.0
+offset_bottom = 532.0
+theme_override_constants/separation = 6
+
+[node name="StartGameBtn" type="Button" parent="MainBtn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Start Game"
+
+[node name="SettingsBtn" type="Button" parent="MainBtn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="HelpBtn" type="Button" parent="MainBtn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Help"
+
+[node name="ExitBtn" type="Button" parent="MainBtn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wu84c")
+autoplay = true
+bus = &"Music"
+
+[node name="Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -51.0
+offset_right = 240.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -67.5
+offset_right = 161.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="AudioContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MusicVolumeLabel" type="Label" parent="Settings/VBoxContainer/AudioContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Music Volume"
+
+[node name="AudioControl" type="HSlider" parent="Settings/VBoxContainer/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_8ln24")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_8ln24")
+audio_bus_name = "Music"
+
+[node name="FullscreenControl" type="CheckButton" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "Fullscreen"
+script = ExtResource("6_rtw2f")
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 212.0
+offset_right = 176.0
+offset_bottom = 248.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Back"
+
+[connection signal="pressed" from="MainBtn/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
+[connection signal="pressed" from="MainBtn/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainBtn/HelpBtn" to="." method="_on_help_btn_pressed"]
+[connection signal="pressed" from="MainBtn/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioContainer/AudioControl" to="Settings/VBoxContainer/AudioContainer/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Settings/VBoxContainer/FullscreenControl" to="Settings/VBoxContainer/FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Settings/BackBtn" to="." method="_on_back_settings_btn_pressed"]

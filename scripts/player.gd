@@ -8,18 +8,19 @@ var last_dir := Vector2.DOWN
 func _physics_process(delta):
 	var dir := Vector2.ZERO
 
+	# Horizontal has priority
 	if Input.is_action_pressed("ui_right"):
-		dir.x += 1
-	if Input.is_action_pressed("ui_left"):
-		dir.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		dir.y += 1
-	if Input.is_action_pressed("ui_up"):
-		dir.y -= 1
-
+		dir = Vector2.RIGHT
+	elif Input.is_action_pressed("ui_left"):
+		dir = Vector2.LEFT
+	elif Input.is_action_pressed("ui_down"):
+		dir = Vector2.DOWN
+	elif Input.is_action_pressed("ui_up"):
+		dir = Vector2.UP
+	
 	if dir != Vector2.ZERO:
 		last_dir = dir
-		velocity = dir.normalized() * speed
+		velocity = dir * speed  
 		play_walk_animation(dir)
 	else:
 		velocity = Vector2.ZERO

@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="PlatformerGame"
-run/main_scene="uid://cpop0itcvxeje"
+run/main_scene="uid://bb60y81jjpxud"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Levelmanager="*res://scripts/levelmanager.gd"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [rendering]
 
