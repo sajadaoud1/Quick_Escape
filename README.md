@@ -1,4 +1,4 @@
-# Platformer Game
+# Maze Game
 
 Simple 2D platformer game made with Godot.
 
