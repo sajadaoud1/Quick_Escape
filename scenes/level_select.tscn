@@ -7,6 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2epne"]
 
 [node name="Control" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
