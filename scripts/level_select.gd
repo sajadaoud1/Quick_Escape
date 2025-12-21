@@ -1,20 +1,39 @@
 extends Control
 
-var unlocked_levels := 1   # later loaded from save
+@onready var grid := $GridContainer
 
 func _ready():
-	var buttons = $GridContainer.get_children()
-	for i in buttons.size():
-		var btn = buttons[i]
-		btn.level_number = i + 1
-		btn.setup(i < unlocked_levels)
-		btn.pressed.connect(_on_level_pressed.bind(i + 1))
+	update_level_buttons()
+	connect_level_buttons()
 
-func _on_level_pressed(level_number):
-	get_tree().change_scene_to_file(
-		"res://scenes/levels/level_%d.tscn" % level_number
-	)
+func update_level_buttons():
+	for i in range(grid.get_child_count()):
+		var btn: Button = grid.get_child(i)
+		if btn == null:
+			continue
+		var level_number = i + 1
+		btn.text = str(level_number)
 
+		var lock_icon = btn.get_node("LockIcon")
+		
+		if level_number <= GameData.unlocked_levels:
+			btn.disabled = false
+			lock_icon.visible = false
+
+		else:
+			btn.disabled = true
+			lock_icon.visible = true
+
+func connect_level_buttons():
+	for i in range(grid.get_child_count()):
+		var btn: Button = grid.get_child(i)
+		var level_number := i + 1
+		btn.pressed.connect(_on_level_pressed.bind(level_number))
 
 func _on_back_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_level_pressed(level_number: int) -> void:
+	if level_number <= GameData.unlocked_levels:
+		var scene_path := "res://scenes/levels/level_%d.tscn" % level_number
+		get_tree().change_scene_to_file(scene_path)
