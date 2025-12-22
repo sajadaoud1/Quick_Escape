@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bb60y81jjpxud"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://bqfhqm7m6j8e8" path="res://assets/Menu/background.jpg" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bcev01d6y0sgc" path="res://assets/Menu/game_logo_2.png" id="2_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://b31321akkcufb" path="res://music/Adventure pack 1 ogg/arcade.ogg" id="4_wu84c"]
-[ext_resource type="Script" path="res://scripts/audio_control.gd" id="5_8ln24"]
-[ext_resource type="Script" path="res://scripts/fullscreen_control.gd" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://cxqmcc1ejy5yq" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cmi431cru4i7y" path="res://assets/Menu/game_logo_2.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://bhmvtpvdntdht" path="res://music/Adventure pack 1 ogg/arcade.ogg" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://buma3pviv3sav" path="res://scripts/audio_control.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://dhxn8w1ks0j7" path="res://scripts/fullscreen_control.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
 color = Color(1, 1, 1, 1)
@@ -88,7 +88,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Settings" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

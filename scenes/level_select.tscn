@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmddqj464mdif"]
+[gd_scene load_steps=6 format=3 uid="uid://cmddqj464mdif"]
 
 [ext_resource type="Script" uid="uid://dnbhh63lsktsb" path="res://scripts/level_select.gd" id="1_2epne"]
 [ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="1_3shnc"]
 [ext_resource type="PackedScene" uid="uid://c8j3qlhwltivn" path="res://scenes/level_button_1.tscn" id="2_p0wlc"]
+[ext_resource type="AudioStream" uid="uid://bl7etda4meunw" path="res://music/Adventure pack 1 ogg/exploration.ogg" id="4_rif6e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2epne"]
 
@@ -49,27 +50,21 @@ columns = 3
 
 [node name="LevelButton1" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="LevelButton2" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="LevelButton3" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="LevelButton4" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="LevelButton5" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="LevelButton6" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
-script = null
 
 [node name="BackBtn" type="Button" parent="."]
 layout_mode = 0
@@ -81,6 +76,10 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_2epne")
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rif6e")
+autoplay = true
 
 [connection signal="pressed" from="GridContainer/LevelButton1" to="." method="_on_level_button_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
