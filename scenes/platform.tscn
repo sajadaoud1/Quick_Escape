@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0v8v5ushfuvx"]
+
+[ext_resource type="Texture2D" uid="uid://l1tawkr8bfxn" path="res://assets/Tiled_files/castle-tileset.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
+size = Vector2(46, 12)
+
+[node name="Platform" type="AnimatableBody2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(80, 112, 48, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlgqw")

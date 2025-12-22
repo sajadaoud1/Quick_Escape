@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var last_dir := Vector2.DOWN
+@export var attack_range: float = 30.0  # مدى الهجوم
+@export var attack_damage: int = 1  # قوة الضربة
 
 func _physics_process(delta):
 	var dir := Vector2.ZERO
@@ -47,3 +49,22 @@ func play_walk_animation(dir: Vector2):
 			anim.play("walk_front")
 		else:
 			anim.play("walk_back")
+
+func _input(event):
+	# عند الضغط على زر المسافة (Space)
+	if event.is_action_pressed("ui_accept"):  # أو أي زر تختاره
+		attack()
+
+func attack():
+	# البحث عن TileMapLayer
+	var tilemap = get_tree().get_first_node_in_group("breakable_tilemap")
+	
+	if tilemap and tilemap.has_method("damage_tile_at_position"):
+		# حساب موقع الضربة (أمام اللاعب)
+		var attack_pos = global_position
+		
+		# إذا بدك الضربة تكون في اتجاه حركة اللاعب
+		# attack_pos += velocity.normalized() * attack_range
+		
+		# ضرب الـ tile في هذا الموقع
+		tilemap.damage_tile_at_position(attack_pos, attack_damage)
