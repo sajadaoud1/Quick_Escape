@@ -71,6 +71,7 @@ theme_override_font_sizes/font_size = 20
 text = "Settings"
 
 [node name="HelpBtn" type="Button" parent="MainBtn"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
@@ -88,6 +89,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Settings" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

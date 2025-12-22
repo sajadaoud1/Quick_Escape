@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://43oqb0yy6oji"]
+
+[ext_resource type="Script" uid="uid://dxtvxxiol3sn6" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="2_wqhvx"]
+[ext_resource type="AudioStream" uid="uid://dh7nk1grbl7qt" path="res://music/Adventure pack 1 ogg/Player Death Stinger.wav" id="3_tbwuq"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wqhvx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = 23.0
+offset_right = 166.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="RetryBtn" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[node name="MenuBtn" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -60.0
+offset_right = 40.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tbwuq")
+autoplay = true
+
+[connection signal="pressed" from="HBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]

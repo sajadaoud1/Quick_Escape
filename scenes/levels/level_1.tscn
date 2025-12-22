@@ -498,9 +498,9 @@ tile_set = SubResource("TileSet_0tnpc")
 stream = ExtResource("11_excbq")
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Menu_Btn" type="Button" parent="CanvasLayer"]
+[node name="Menu_Btn" type="Button" parent="UI"]
 process_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -510,7 +510,7 @@ offset_bottom = 58.0
 grow_horizontal = 0
 icon = ExtResource("10_qxy0u")
 
-[node name="MenuOptions" type="Panel" parent="CanvasLayer"]
+[node name="MenuOptions" type="Panel" parent="UI"]
 process_mode = 3
 offset_left = 977.0
 offset_top = 58.0
@@ -518,7 +518,7 @@ offset_right = 1150.0
 offset_bottom = 530.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iav0o")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuOptions"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuOptions"]
 process_mode = 3
 layout_mode = 0
 offset_left = 15.0
@@ -527,24 +527,40 @@ offset_right = 167.0
 offset_bottom = 216.0
 theme_override_constants/separation = 18
 
-[node name="LevelsBtn" type="Button" parent="CanvasLayer/MenuOptions/VBoxContainer"]
+[node name="LevelsBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_dnkej")
 text = "Levels"
 
-[node name="MenuBtn" type="Button" parent="CanvasLayer/MenuOptions/VBoxContainer"]
+[node name="MenuBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_mm8aj")
 text = "Main Menu"
 
-[node name="ExitBtn" type="Button" parent="CanvasLayer/MenuOptions/VBoxContainer"]
+[node name="ExitBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
 text = "Exit"
 
-[connection signal="pressed" from="CanvasLayer/Menu_Btn" to="." method="_on_menu_icon_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuOptions/VBoxContainer/LevelsBtn" to="." method="_on_levels_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuOptions/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuOptions/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[node name="TimerLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Time: 60"
+horizontal_alignment = 1
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="pressed" from="UI/Menu_Btn" to="." method="_on_menu_icon_pressed"]
+[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/LevelsBtn" to="." method="_on_levels_btn_pressed"]
+[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
