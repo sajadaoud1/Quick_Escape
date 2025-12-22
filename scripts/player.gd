@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
 @export var speed := 220
+@export var attack_range: float = 60.0
+@export var attack_damage: int = 1
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var last_dir := Vector2.DOWN
-@export var attack_range: float = 30.0  # مدى الهجوم
-@export var attack_damage: int = 1  # قوة الضربة
 
 func _physics_process(delta):
 	var dir := Vector2.ZERO
-
-	# Horizontal has priority
+	
 	if Input.is_action_pressed("ui_right"):
 		dir = Vector2.RIGHT
 	elif Input.is_action_pressed("ui_left"):
@@ -27,7 +27,7 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 		play_idle_animation()
-
+	
 	move_and_slide()
 
 func play_idle_animation():
@@ -51,20 +51,21 @@ func play_walk_animation(dir: Vector2):
 			anim.play("walk_back")
 
 func _input(event):
-	# عند الضغط على زر المسافة (Space)
-	if event.is_action_pressed("ui_accept"):  # أو أي زر تختاره
+	if event.is_action_pressed("ui_accept"):
 		attack()
 
 func attack():
-	# البحث عن TileMapLayer
-	var tilemap = get_tree().get_first_node_in_group("breakable_tilemap")
+	print("Attack pressed!")
 	
-	if tilemap and tilemap.has_method("damage_tile_at_position"):
-		# حساب موقع الضربة (أمام اللاعب)
-		var attack_pos = global_position
+	var breakables = get_tree().get_nodes_in_group("breakable")
+	print("Found ", breakables.size(), " breakable objects")
+	
+	for box in breakables:
+		var distance = global_position.distance_to(box.global_position)
+		print("Distance to box: ", distance)
 		
-		# إذا بدك الضربة تكون في اتجاه حركة اللاعب
-		# attack_pos += velocity.normalized() * attack_range
-		
-		# ضرب الـ tile في هذا الموقع
-		tilemap.damage_tile_at_position(attack_pos, attack_damage)
+		if distance <= attack_range:
+			print("Box in range! Breaking...")
+			if box.has_method("take_damage"):
+				box.take_damage(attack_damage)
+			break

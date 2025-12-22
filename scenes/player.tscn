@@ -222,6 +222,7 @@ z_index = 5
 scale = Vector2(0.2, 0.2)
 collision_layer = 2
 script = ExtResource("1_dqkch")
+attack_range = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
