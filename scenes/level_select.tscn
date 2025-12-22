@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmddqj464mdif"]
 
-[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_2epne"]
-[ext_resource type="Texture2D" uid="uid://bqfhqm7m6j8e8" path="res://assets/Menu/background.jpg" id="1_3shnc"]
+[ext_resource type="Script" uid="uid://dnbhh63lsktsb" path="res://scripts/level_select.gd" id="1_2epne"]
+[ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="1_3shnc"]
 [ext_resource type="PackedScene" uid="uid://c8j3qlhwltivn" path="res://scenes/level_button_1.tscn" id="2_p0wlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2epne"]
 
 [node name="Control" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -50,6 +49,7 @@ columns = 3
 
 [node name="LevelButton1" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
+script = null
 
 [node name="LevelButton2" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
@@ -57,15 +57,19 @@ script = null
 
 [node name="LevelButton3" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
+script = null
 
 [node name="LevelButton4" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
+script = null
 
 [node name="LevelButton5" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
+script = null
 
 [node name="LevelButton6" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
+script = null
 
 [node name="BackBtn" type="Button" parent="."]
 layout_mode = 0
