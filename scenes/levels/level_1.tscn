@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bjnmrbepu0wl3"]
+[gd_scene load_steps=20 format=4 uid="uid://bjnmrbepu0wl3"]
 
 [ext_resource type="Texture2D" uid="uid://l1tawkr8bfxn" path="res://assets/Tiled_files/castle-tileset.png" id="1_dga24"]
 [ext_resource type="Script" uid="uid://crr8i1027t4to" path="res://scripts/level_1.gd" id="1_qxy0u"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://7kw0240kjm0g" path="res://assets/Screenshot 2025-12-22 052001.png" id="7_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dywmwxnw64xdu" path="res://assets/Screenshot 2025-12-22 052016.png" id="8_iwr0g"]
 [ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="9_bahl2"]
-[ext_resource type="Texture2D" uid="uid://crfhutilbxk6l" path="res://assets/Menu/menuList.png" id="10_qxy0u"]
-[ext_resource type="AudioStream" uid="uid://1inef04axlpj" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
+[ext_resource type="AudioStream" uid="uid://tn684ndrvxyq" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
 [ext_resource type="PackedScene" uid="uid://c5yy5fsyf5px1" path="res://scenes/breakable_stone.tscn" id="13_dnkej"]
+[ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="13_mm8aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_dga24")
@@ -206,30 +206,6 @@ texture = ExtResource("1_dga24")
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gee14")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iav0o"]
-bg_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnkej"]
-bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm8aj"]
-bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtwp4"]
-bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qxy0u")
@@ -501,63 +477,6 @@ tile_set = SubResource("TileSet_0tnpc")
 stream = ExtResource("11_excbq")
 autoplay = true
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Menu_Btn" type="Button" parent="UI"]
-process_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -58.0
-offset_bottom = 58.0
-grow_horizontal = 0
-icon = ExtResource("10_qxy0u")
-
-[node name="MenuOptions" type="Panel" parent="UI"]
-process_mode = 3
-offset_left = 1076.0
-offset_top = 58.0
-offset_right = 1249.0
-offset_bottom = 530.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_iav0o")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuOptions"]
-process_mode = 3
-layout_mode = 0
-offset_left = 15.0
-offset_top = 54.0
-offset_right = 167.0
-offset_bottom = 216.0
-theme_override_constants/separation = 18
-
-[node name="LevelsBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dnkej")
-text = "Levels"
-
-[node name="MenuBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_mm8aj")
-text = "Main Menu"
-
-[node name="ExitBtn" type="Button" parent="UI/MenuOptions/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
-text = "Exit"
-
-[node name="TimerLabel" type="Label" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.5
-offset_right = 32.5
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "Time: 60"
-horizontal_alignment = 1
-
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 150.0
 one_shot = true
@@ -735,8 +654,6 @@ position = Vector2(971, 442)
 [node name="BreakableStone41" parent="breakablestones" instance=ExtResource("13_dnkej")]
 position = Vector2(971, 458)
 
-[connection signal="pressed" from="UI/Menu_Btn" to="." method="_on_menu_icon_pressed"]
-[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/LevelsBtn" to="." method="_on_levels_btn_pressed"]
-[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
-[connection signal="pressed" from="UI/MenuOptions/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[node name="UI" parent="." instance=ExtResource("13_mm8aj")]
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
