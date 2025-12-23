@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
 @export var speed := 150
+
+@export var attack_range: float = 40.0
+@export var attack_damage: int = 1
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var last_dir := Vector2.DOWN
-@export var attack_range: float = 30.0  # مدى الهجوم
-@export var attack_damage: int = 1  # قوة الضربة
 
 func _physics_process(delta):
 	var dir := Vector2.ZERO
-
-	# Horizontal has priority
+	
 	if Input.is_action_pressed("ui_right"):
 		dir = Vector2.RIGHT
 	elif Input.is_action_pressed("ui_left"):
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 		play_idle_animation()
-
+	
 	move_and_slide()
 
 func play_idle_animation():
@@ -51,20 +52,34 @@ func play_walk_animation(dir: Vector2):
 			anim.play("walk_back")
 
 func _input(event):
-	# عند الضغط على زر المسافة (Space)
-	if event.is_action_pressed("ui_accept"):  # أو أي زر تختاره
+	if event.is_action_pressed("ui_accept"):
 		attack()
 
 func attack():
-	# البحث عن TileMapLayer
-	var tilemap = get_tree().get_first_node_in_group("breakable_tilemap")
+	var breakables = get_tree().get_nodes_in_group("breakable")
+	var closest_box = null
+	var closest_distance = attack_range
 	
-	if tilemap and tilemap.has_method("damage_tile_at_position"):
-		# حساب موقع الضربة (أمام اللاعب)
-		var attack_pos = global_position
+	for box in breakables:
+		var to_box = box.global_position - global_position
+		var distance = to_box.length()
 		
-		# إذا بدك الضربة تكون في اتجاه حركة اللاعب
-		# attack_pos += velocity.normalized() * attack_range
+		var direction_match = false
 		
-		# ضرب الـ tile في هذا الموقع
-		tilemap.damage_tile_at_position(attack_pos, attack_damage)
+		if abs(last_dir.x) > abs(last_dir.y):
+			if last_dir.x > 0:
+				direction_match = to_box.x > 0 and abs(to_box.y) < 20
+			else:
+				direction_match = to_box.x < 0 and abs(to_box.y) < 20
+		else:
+			if last_dir.y > 0:
+				direction_match = to_box.y > 0 and abs(to_box.x) < 20
+			else:
+				direction_match = to_box.y < 0 and abs(to_box.x) < 20
+		
+		if direction_match and distance <= attack_range and distance < closest_distance:
+			closest_box = box
+			closest_distance = distance
+	
+	if closest_box and closest_box.has_method("take_damage"):
+		closest_box.take_damage(attack_damage)
