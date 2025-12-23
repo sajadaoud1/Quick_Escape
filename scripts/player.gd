@@ -6,9 +6,11 @@ extends CharacterBody2D
 @export var attack_damage: int = 1
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+var has_key := false
 
 var last_dir := Vector2.DOWN
 
+var diamonds := 0
 func _physics_process(delta):
 	var dir := Vector2.ZERO
 	
@@ -65,7 +67,8 @@ func attack():
 		var distance = to_box.length()
 		
 		var direction_match = false
-		
+		var has_key := false
+
 		if abs(last_dir.x) > abs(last_dir.y):
 			if last_dir.x > 0:
 				direction_match = to_box.x > 0 and abs(to_box.y) < 20
@@ -83,3 +86,18 @@ func attack():
 	
 	if closest_box and closest_box.has_method("take_damage"):
 		closest_box.take_damage(attack_damage)
+
+
+func pick_key():
+	has_key = true
+	$KeyInHand.visible = true
+
+
+func remove_key():
+	has_key = false
+	$KeyInHand.visible = false
+	
+func collect_diamond():
+	diamonds += 1
+	print("Diamonds:", diamonds)
+	

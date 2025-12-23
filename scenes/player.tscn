@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://nq08bsoe8dk1"]
+[gd_scene load_steps=33 format=3 uid="uid://nq08bsoe8dk1"]
 
 [ext_resource type="Script" uid="uid://dxnivi1u0l25o" path="res://scripts/player.gd" id="1_dqkch"]
-[ext_resource type="Texture2D" uid="uid://scmbfrhb7e7e" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://buw2vod1kldt3" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://ccvek2ho5qley" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dpr5jssoy2jgg" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dyuoayy43nuoy" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cf2rcmyacgdx6" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://ddnjd2ocx7av5" path="res://assets/key.png" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_qhqgy")
@@ -234,3 +235,9 @@ animation = &"idle_front"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(76, 75)
 shape = SubResource("CapsuleShape2D_gl8cc")
+
+[node name="KeyInHand" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(100, 100)
+scale = Vector2(0.38764063, 0.3333335)
+texture = ExtResource("5_qlg0r")
