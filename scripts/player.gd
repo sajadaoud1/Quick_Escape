@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 220
-@export var attack_range: float = 60.0
+@export var attack_range: float = 40.0
 @export var attack_damage: int = 1
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -55,17 +55,30 @@ func _input(event):
 		attack()
 
 func attack():
-	print("Attack pressed!")
-	
 	var breakables = get_tree().get_nodes_in_group("breakable")
-	print("Found ", breakables.size(), " breakable objects")
+	var closest_box = null
+	var closest_distance = attack_range
 	
 	for box in breakables:
-		var distance = global_position.distance_to(box.global_position)
-		print("Distance to box: ", distance)
+		var to_box = box.global_position - global_position
+		var distance = to_box.length()
 		
-		if distance <= attack_range:
-			print("Box in range! Breaking...")
-			if box.has_method("take_damage"):
-				box.take_damage(attack_damage)
-			break
+		var direction_match = false
+		
+		if abs(last_dir.x) > abs(last_dir.y):
+			if last_dir.x > 0:
+				direction_match = to_box.x > 0 and abs(to_box.y) < 20
+			else:
+				direction_match = to_box.x < 0 and abs(to_box.y) < 20
+		else:
+			if last_dir.y > 0:
+				direction_match = to_box.y > 0 and abs(to_box.x) < 20
+			else:
+				direction_match = to_box.y < 0 and abs(to_box.x) < 20
+		
+		if direction_match and distance <= attack_range and distance < closest_distance:
+			closest_box = box
+			closest_distance = distance
+	
+	if closest_box and closest_box.has_method("take_damage"):
+		closest_box.take_damage(attack_damage)
