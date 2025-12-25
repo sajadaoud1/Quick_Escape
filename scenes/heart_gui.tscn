@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cchi3xpsu0u32"]
+
+[ext_resource type="Texture2D" uid="uid://b2jeg3y5af2in" path="res://assets/Pixel Heart Sprite Sheet 16x16 - Copy.png" id="1_l0qp3"]
+
+[node name="HeartGui" type="TextureRect"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 205.0
+offset_bottom = 187.0
+texture = ExtResource("1_l0qp3")
+expand_mode = 1
+stretch_mode = 5

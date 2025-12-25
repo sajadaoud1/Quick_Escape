@@ -8,12 +8,48 @@ extends CharacterBody2D
 @export var diamond_scene: PackedScene
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+signal health_changed(current_health) # إشارة لتحديث القلوب في الواجهة
+
+@export var max_health: int = 3
+var current_health: int
+
 var has_key := false
 var has_diamond := false
 
 var last_dir := Vector2.DOWN
 
 var diamonds := 0
+
+var is_invincible := false # هل اللاعب في وضع الحماية؟
+
+func _ready():
+	current_health = max_health
+	# ننتظر قليلاً للتأكد من أن الواجهة جاهزة قبل إرسال أول تحديث
+	await get_tree().process_frame
+	health_changed.emit(current_health)
+	
+func take_damage(amount: int):
+	if is_invincible: # إذا كان اللاعب محمياً، لا نفعل شيئاً
+		return
+	current_health -= amount
+	current_health = clampi(current_health, 0, max_health) # لضمان عدم نزول الصحة تحت الصفر
+	
+	health_changed.emit(current_health) # أخبر الواجهة أن الصحة تغيرت
+	if current_health <= 0:
+		die() # استدعاء دالة الموت الموجودة أصلاً في كودك
+	else:
+		start_invincibility() # تفعيل وضع الحماية مؤقتاً
+func start_invincibility():
+	is_invincible = true
+	# جعل اللاعب يومض (شفافية 50%)
+	anim.modulate.a = 0.5 
+	
+	# انتظر ثانية واحدة قبل العودة للحالة الطبيعية
+	await get_tree().create_timer(1.0).timeout 
+	
+	is_invincible = false
+	anim.modulate.a = 1.0 # إعادة اللاعب لشكلة الطبيعي
+	
 func _physics_process(delta):
 	var dir := Vector2.ZERO
 	
@@ -184,3 +220,6 @@ func take_key(cell: Vector2i):
 func spawn_diamond_delayed(cell: Vector2i):
 	await get_tree().create_timer(1.0).timeout
 	spawn_diamond(cell)
+
+func die():
+	get_tree().reload_current_scene()
