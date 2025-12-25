@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://byluk45syy362"]
+
+[ext_resource type="Script" uid="uid://cw4emahirg1ur" path="res://scripts/static_body_2d.gd" id="1_7h3b6"]
+[ext_resource type="Texture2D" uid="uid://7kw0240kjm0g" path="res://assets/Screenshot 2025-12-22 052001.png" id="2_0d81x"]
+[ext_resource type="Texture2D" uid="uid://dywmwxnw64xdu" path="res://assets/Screenshot 2025-12-22 052016.png" id="3_3ncgi"]
+[ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="4_8y1d7"]
+
+[node name="DoorNode" type="StaticBody2D"]
+scale = Vector2(0.13, 0.13)
+script = ExtResource("1_7h3b6")
+open_texture = ExtResource("2_0d81x")
+closed_texture = ExtResource("3_3ncgi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8y1d7")

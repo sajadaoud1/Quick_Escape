@@ -8,7 +8,7 @@ var level_number = 1
 
 func _ready() -> void:
 	get_tree().paused = false
-
+	GameData.current_level_path = scene_file_path
 
 
 func _on_level_completed():

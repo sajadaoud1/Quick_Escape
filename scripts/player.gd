@@ -107,22 +107,14 @@ func collect_diamond():
 func spawn_diamond(cell: Vector2i):
 	var diamond = diamond_scene.instantiate()
 
-	# Treasure world position
 	var start_pos = tile_map_layer_3.to_global(
 		tile_map_layer_3.map_to_local(cell)
 	)
 
-	# Where diamond starts (inside chest)
 	diamond.global_position = start_pos + Vector2(0, -12)
-
 	get_parent().add_child(diamond)
 
-	# Landing position (a bit to the side)
-	var offset_x = randf_range(-24, 24)
-	var end_pos = start_pos + Vector2(offset_x, 8)
-
-	animate_diamond_jump(diamond, start_pos, end_pos)
-
+		
 func animate_diamond_jump(diamond: Node2D, start_pos: Vector2, end_pos: Vector2):
 	var tween = get_tree().create_tween()
 

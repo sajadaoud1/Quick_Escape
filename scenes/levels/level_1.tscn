@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bjnmrbepu0wl3"]
+[gd_scene load_steps=23 format=4 uid="uid://bjnmrbepu0wl3"]
 
 [ext_resource type="Texture2D" uid="uid://l1tawkr8bfxn" path="res://assets/Tiled_files/castle-tileset.png" id="1_dga24"]
 [ext_resource type="Script" uid="uid://crr8i1027t4to" path="res://scripts/level_1.gd" id="1_qxy0u"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="13_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://c8h8aygwktwyi" path="res://scenes/key.tscn" id="14_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://4h2bsqgnxw0e" path="res://scenes/box.tscn" id="15_wtwp4"]
+[ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="16_iwr0g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_dga24")
@@ -663,5 +664,8 @@ position = Vector2(504, 168)
 
 [node name="box" parent="." instance=ExtResource("15_wtwp4")]
 position = Vector2(905, 408)
+
+[node name="Goal" type="Node" parent="."]
+script = ExtResource("16_iwr0g")
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

@@ -37,3 +37,12 @@ func _on_menu_btn_pressed() -> void:
 func _on_level_timer_timeout() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+
+func _on_retry_btn_pressed() -> void:
+	get_tree().paused = false
+	
+	if GameData.current_level_path != "":
+		get_tree().change_scene_to_file(GameData.current_level_path)
+	else:
+		print("ERROR: No level path saved")

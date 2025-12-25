@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameData="*res://scripts/GameData.gd"
 Levelmanager="*res://scripts/levelmanager.gd"
+Goal="*res://scripts/goal.gd"
 
 [display]
 

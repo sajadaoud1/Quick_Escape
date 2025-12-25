@@ -74,6 +74,13 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
 text = "Exit"
 
+[node name="RetryBtn" type="Button" parent="MenuOptions/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
+text = "Retry"
+
 [node name="TimerLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -93,4 +100,5 @@ one_shot = true
 [connection signal="pressed" from="MenuOptions/VBoxContainer/LevelsBtn" to="." method="_on_levels_btn_pressed"]
 [connection signal="pressed" from="MenuOptions/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="MenuOptions/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="MenuOptions/VBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
