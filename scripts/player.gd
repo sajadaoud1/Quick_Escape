@@ -4,9 +4,12 @@ extends CharacterBody2D
 
 @export var attack_range: float = 40.0
 @export var attack_damage: int = 1
-
+@export var tile_map_layer_3: TileMapLayer
+@export var diamond_scene: PackedScene
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
 var has_key := false
+var has_diamond := false
 
 var last_dir := Vector2.DOWN
 
@@ -32,6 +35,7 @@ func _physics_process(delta):
 		play_idle_animation()
 	
 	move_and_slide()
+	check_tile()
 
 func play_idle_animation():
 	if abs(last_dir.x) > abs(last_dir.y):
@@ -67,7 +71,6 @@ func attack():
 		var distance = to_box.length()
 		
 		var direction_match = false
-		var has_key := false
 
 		if abs(last_dir.x) > abs(last_dir.y):
 			if last_dir.x > 0:
@@ -101,3 +104,83 @@ func collect_diamond():
 	diamonds += 1
 	print("Diamonds:", diamonds)
 	
+func spawn_diamond(cell: Vector2i):
+	var diamond = diamond_scene.instantiate()
+
+	# Treasure world position
+	var start_pos = tile_map_layer_3.to_global(
+		tile_map_layer_3.map_to_local(cell)
+	)
+
+	# Where diamond starts (inside chest)
+	diamond.global_position = start_pos + Vector2(0, -12)
+
+	get_parent().add_child(diamond)
+
+	# Landing position (a bit to the side)
+	var offset_x = randf_range(-24, 24)
+	var end_pos = start_pos + Vector2(offset_x, 8)
+
+	animate_diamond_jump(diamond, start_pos, end_pos)
+
+func animate_diamond_jump(diamond: Node2D, start_pos: Vector2, end_pos: Vector2):
+	var tween = get_tree().create_tween()
+
+	# Jump up
+	tween.tween_property(
+		diamond,
+		"global_position",
+		start_pos + Vector2(0, -32),
+		0.25
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# Fall to the side
+	tween.tween_property(
+		diamond,
+		"global_position",
+		end_pos,
+		0.35
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+
+
+func try_open_treasure(cell: Vector2i):
+	if not has_key:
+		return
+
+	remove_key()
+	spawn_diamond_delayed(cell)
+
+func get_player_cell() -> Vector2i:
+	if tile_map_layer_3 == null:
+		return Vector2i(-999, -999) # invalid cell
+
+	var feet_pos = global_position + Vector2(0, 8)
+	var local_pos = tile_map_layer_3.to_local(feet_pos)
+	return tile_map_layer_3.local_to_map(local_pos)
+
+func check_tile():
+	if tile_map_layer_3 == null:
+		return
+
+	var cell = get_player_cell()
+	var data = tile_map_layer_3.get_cell_tile_data(cell)
+
+	if data == null:
+		return
+
+	var tile_type = data.get_custom_data("type")
+
+	match tile_type:
+		"key":
+			take_key(cell)
+		"treasure":
+			try_open_treasure(cell)
+
+func take_key(cell: Vector2i):
+	pick_key()
+	tile_map_layer_3.erase_cell(cell)
+
+func spawn_diamond_delayed(cell: Vector2i):
+	await get_tree().create_timer(1.0).timeout
+	spawn_diamond(cell)

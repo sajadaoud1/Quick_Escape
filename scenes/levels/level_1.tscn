@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7kw0240kjm0g" path="res://assets/Screenshot 2025-12-22 052001.png" id="7_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dywmwxnw64xdu" path="res://assets/Screenshot 2025-12-22 052016.png" id="8_iwr0g"]
 [ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="9_bahl2"]
-[ext_resource type="AudioStream" uid="uid://1inef04axlpj" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
+[ext_resource type="AudioStream" uid="uid://tn684ndrvxyq" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
 [ext_resource type="PackedScene" uid="uid://c5yy5fsyf5px1" path="res://scenes/breakable_stone.tscn" id="13_dnkej"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="13_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://c8h8aygwktwyi" path="res://scenes/key.tscn" id="14_mm8aj"]

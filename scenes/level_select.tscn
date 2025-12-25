@@ -40,13 +40,13 @@ vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 488.0
-offset_top = 214.0
-offset_right = 759.0
-offset_bottom = 404.0
+offset_left = 447.0
+offset_top = 201.0
+offset_right = 718.0
+offset_bottom = 461.0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 3
+columns = 4
 
 [node name="LevelButton1" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
@@ -66,12 +66,42 @@ layout_mode = 2
 [node name="LevelButton6" parent="GridContainer" instance=ExtResource("2_p0wlc")]
 layout_mode = 2
 
+[node name="LevelButton7" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton8" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton9" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton10" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton11" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton12" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton13" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton14" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton15" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
+[node name="LevelButton16" parent="GridContainer" instance=ExtResource("2_p0wlc")]
+layout_mode = 2
+
 [node name="BackBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 339.0
-offset_top = 460.0
-offset_right = 477.0
-offset_bottom = 496.0
+offset_left = 310.0
+offset_top = 496.0
+offset_right = 448.0
+offset_bottom = 532.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_2epne")
