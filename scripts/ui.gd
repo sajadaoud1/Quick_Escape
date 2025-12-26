@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var menu_options: Panel = $MenuOptions
 @onready var timer_label: Label = $TimerLabel
 @onready var level_timer: Timer = $LevelTimer
+@onready var hearts_container: HBoxContainer = $HeartsContainer2
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -46,3 +48,13 @@ func _on_retry_btn_pressed() -> void:
 		get_tree().change_scene_to_file(GameData.current_level_path)
 	else:
 		print("ERROR: No level path saved")
+
+
+func _on_player_health_changed(current_health: Variant) -> void:
+	hearts_container.update_hearts(current_health) 
+	
+func add_time(amount: int):
+	var remaining = level_timer.time_left
+	level_timer.stop()
+	level_timer.wait_time = remaining + amount
+	level_timer.start()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://blv7lvtoda8wt"]
+[gd_scene load_steps=8 format=3 uid="uid://blv7lvtoda8wt"]
 
 [ext_resource type="Texture2D" uid="uid://crfhutilbxk6l" path="res://assets/Menu/menuList.png" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://hqibn0ar1vc7" path="res://scripts/ui.gd" id="1_x4jx1"]
+[ext_resource type="Script" path="res://scripts/hearts_container.gd" id="3_yev5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iav0o"]
 bg_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
@@ -95,6 +96,11 @@ horizontal_alignment = 1
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="HeartsContainer2" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_yev5y")
 
 [connection signal="pressed" from="Menu_Btn" to="." method="_on_menu_icon_pressed"]
 [connection signal="pressed" from="MenuOptions/VBoxContainer/LevelsBtn" to="." method="_on_levels_btn_pressed"]

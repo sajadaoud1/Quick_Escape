@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://upp7tuc3lu0f"]
+[gd_scene load_steps=42 format=4 uid="uid://upp7tuc3lu0f"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="1_fiq81"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://tn684ndrvxyq" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dfqomqmwgmwgx" path="res://scenes/coin.tscn" id="14_r88tb"]
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="16_ndlae"]
+[ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/enemy_s.tscn" id="17_v8d84"]
+[ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/apple.tscn" id="18_gw1l3"]
+[ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/melon.tscn" id="19_p4se4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qukl"]
 texture = ExtResource("1_fiq81")
@@ -6247,8 +6250,6 @@ tile_set = SubResource("TileSet_8qukl")
 tile_map_data = PackedByteArray("AAAUAAcABAAbAB8AAAASAAYAAwADAB0AAAASAAcABAARACMAAAATAAYABAASACIAAAATAAcABAASACMAAAAUAAYABAATACIAAAAVAAYAAwAHABsAAAAVAAcABAAcAB8AAAAWAAYAAwACAB0AAAAWAAcABAAdAB8AAAAXAAYAAwACAB0AAAAXAAcABAAeAB8AAAAYAAYAAwACAB0AAAAYAAcABAAXACMAAAAUAAgABAAbACAAAAAVAAgABAAcACAAAAAWAAgABAAdACAAAAAWAAkABAAdAB4AAAAXAAkABAAeAB4AAAAYAAkABAAfAB4AAAATAAQAAwAGABoAAAAUAAQAAwAGABoAAAAMAAYAAwACAB0AAAANAAYAAwACAB0AAAAOAAYAAwACAB0AAAAPAAYAAwACAB0AAAAQAAYAAwACAB0AAAARAAYAAwACAB0AAAAMAAcABAAYABsAAAANAAcABAAZABsAAAAOAAcABAAaABsAAAAPAAcABAAhACAAAAAMAAkABAAeACIAAAANAAkABAAhACAAAAAMAAgABAAYABwAAAANAAgABAAZABwAAAAOAAgABAAaABwAAAAPAAgABAAbABwAAAAVAAoABAAZABsAAAAWAAoABAAhABwAAAAXAAoABAAiABwAAAAYAAoABAAjABwAAAAXAAsABAAhACAAAAAXAAwABAAhACAAAAATAAUABAAhACAAAAAUAAUABAAiACAAAAANAAoABAAhACAAAAAXAAgABAAhACAAAAAYAAgABAAiACAAAAATAAgABAAhACAAAAALABQABQAJAAEAAAALABUABQAJAAIAAAAMABQABQAKAAEAAAAMABUABQAKAAIAAAACAAAABQASAAQAAAAOAAEABgAJAAMAAAAPAAAABgAKAAIAAAAPAAEABgAKAAMAAAAPAAIABgAKAAQAAAAPAAMABgAKAAUAAAAQAAEABgALAAMAAAAOAA0ABgAFAAIAAAAOAA4ABgAFAAMAAAAOAA8ABgAFAAQAAAAOABAABgAFAAUAAAAPAA0ABgAGAAIAAAAPAA4ABgAGAAMAAAAPAA8ABgAGAAQAAAAPABAABgAGAAUAAAAQAA0ABgAHAAIAAAAQAA4ABgAHAAMAAAAQAA8ABgAHAAQAAAAQABAABgAHAAUAAAARABAABgAIAAUAAAAEAAwABgABAAIAAAAEAA0ABgABAAMAAAAEAA4ABgABAAQAAAAEAA8ABgABAAUAAAAFAAwABgACAAIAAAAFAA8ABgACAAUAAAAGAAwABgADAAIAAAAGAA0ABgADAAMAAAAGAA4ABgADAAQAAAAGAA8ABgADAAUAAAABAAUABgAFAAIAAAABAAYABgAFAAMAAAABAAcABgAFAAQAAAABAAgABgAFAAUAAAACAAUABgAGAAIAAAACAAYABgAGAAMAAAACAAcABgAGAAQAAAACAAgABgAGAAUAAAADAAUABgAHAAIAAAADAAYABgAHAAMAAAADAAcABgAHAAQAAAADAAgABgAHAAUAAAAEAAgABgAIAAUAAAD4/wsABgAFAAIAAAD4/wwABgAFAAMAAAD4/w0ABgAFAAQAAAD4/w4ABgAFAAUAAAD5/wsABgAGAAIAAAD5/wwABgAGAAMAAAD5/w0ABgAGAAQAAAD5/w4ABgAGAAUAAAD6/wsABgAHAAIAAAD6/wwABgAHAAMAAAD6/w0ABgAHAAQAAAD6/w4ABgAHAAUAAAD7/w4ABgAIAAUAAAAWAP3/AQACAAEAAAAWAP7/AQACAAIAAAAXAP3/AQADAAEAAAAXAP7/AQADAAIAAAA=")
 tile_set = SubResource("TileSet_sibr7")
 
-[node name="UI" parent="." instance=ExtResource("6_qpwj6")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_tv7cl")
 autoplay = true
@@ -6344,3 +6345,35 @@ position = Vector2(198, -6)
 
 [node name="Goal" type="Node" parent="."]
 script = ExtResource("16_ndlae")
+
+[node name="UI" parent="." instance=ExtResource("6_qpwj6")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy_s" parent="Enemies" instance=ExtResource("17_v8d84")]
+position = Vector2(86, 87)
+
+[node name="Enemy_s2" parent="Enemies" instance=ExtResource("17_v8d84")]
+position = Vector2(171, 213)
+
+[node name="Enemy_s3" parent="Enemies" instance=ExtResource("17_v8d84")]
+position = Vector2(-141, 210)
+
+[node name="Fruits" type="Node" parent="."]
+
+[node name="Apple" parent="Fruits" instance=ExtResource("18_gw1l3")]
+position = Vector2(88, 224)
+
+[node name="Apple2" parent="Fruits" instance=ExtResource("18_gw1l3")]
+position = Vector2(115, 328)
+
+[node name="melon" parent="Fruits" instance=ExtResource("19_p4se4")]
+position = Vector2(-164, 249)
+
+[node name="melon2" parent="Fruits" instance=ExtResource("19_p4se4")]
+position = Vector2(392, 327)
+
+[node name="melon3" parent="Fruits" instance=ExtResource("19_p4se4")]
+position = Vector2(129, 34)
+
+[connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]

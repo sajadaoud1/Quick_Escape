@@ -1,6 +1,13 @@
 extends Node2D
 
+var time_left := 60
 
-# Called when the node enters the scene tree for the first time.
+@onready var time_label := $CanvasLayer/TimeLabel
+
+
 func _ready() -> void:
 	GameData.current_level_path = scene_file_path
+
+func add_time(amount: int):
+	time_left += amount
+	time_label.text = str(time_left)
