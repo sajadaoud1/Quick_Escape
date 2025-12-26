@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8gu5fw3tsxy0"]
+
+[ext_resource type="Script" uid="uid://0l4tu0f6e1cc" path="res://scripts/help_screen.gd" id="1_akvjw"]
+[ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="1_p44hu"]
+[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="3_3bsgv"]
+[ext_resource type="Texture2D" uid="uid://cw2p13jxwwbhl" path="res://assets/Tiled_files/breakable_stone.png" id="4_sys3r"]
+[ext_resource type="Texture2D" uid="uid://dq62sh8hsmp05" path="res://assets/Tiled_files/box.png" id="5_dh6sn"]
+[ext_resource type="AudioStream" uid="uid://bhomixjm5cn38" path="res://music/Adventure pack 1 ogg/chibi-robot-b.ogg" id="6_sys3r"]
+
+[node name="Help Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_akvjw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 99.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p44hu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 32.0
+offset_right = 839.0
+offset_bottom = 121.5
+theme_override_font_sizes/font_size = 42
+text = "Help"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 573.0
+offset_right = 1096.0
+offset_bottom = 641.5
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 227.0
+offset_right = 552.0
+offset_bottom = 543.0
+theme_override_font_sizes/font_size = 18
+text = "🎮 CONTROLS
+• Move: Arrow Keys
+• Attack / Interact: Space
+
+🧱 OBJECTS
+• Coins: Collect for score
+• Key: Needed to open treasure
+• Treasure: Contains the diamond
+• Diamond: Win the level
+• Apple: +5 seconds
+• Melon: +2 seconds
+"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 188.0
+offset_right = 981.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 18
+text = "
+👾 ENEMIES
+• Touching enemies removes 1 heart
+• You have 3 hearts total
+
+⏱️ TIMER
+• Time runs out → Game Over
+• Collect fruits to gain time
+"
+
+[node name="TheKey" type="Sprite2D" parent="."]
+position = Vector2(118, 421)
+scale = Vector2(3.4166667, 4.214286)
+texture = ExtResource("3_3bsgv")
+
+[node name="BreakableStone" type="Sprite2D" parent="."]
+position = Vector2(117, 266)
+scale = Vector2(0.5857143, 0.57246375)
+texture = ExtResource("4_sys3r")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(117, 473.00003)
+scale = Vector2(0.47457626, 0.51428574)
+texture = ExtResource("5_dh6sn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_sys3r")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

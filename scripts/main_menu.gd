@@ -18,7 +18,7 @@ func _on_settings_btn_pressed() -> void:
 
 
 func _on_help_btn_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/help_screen.tscn")
 
 
 func _on_back_settings_btn_pressed() -> void:
