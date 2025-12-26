@@ -1,23 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8h8aygwktwyi"]
 
 [ext_resource type="Script" uid="uid://bdiqfw8kpqie1" path="res://scripts/key.gd" id="1_fttkb"]
-[ext_resource type="Texture2D" uid="uid://ddnjd2ocx7av5" path="res://assets/key.png" id="1_yk2u2"]
+[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="2_fttkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fttkb"]
-size = Vector2(18.499998, 7)
+size = Vector2(17.500011, 12.50001)
 
 [node name="key" type="Area2D"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.9, 0.9)
 collision_mask = 2
 script = ExtResource("1_fttkb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_yk2u2")
+position = Vector2(-4.099999, -3.2249994)
+scale = Vector2(1.8166667, 1.9357142)
+texture = ExtResource("2_fttkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.7500004, 2.9802317e-08)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-6.249999, -3.7499993)
+scale = Vector2(0.99999917, 0.99999917)
 shape = SubResource("RectangleShape2D_fttkb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

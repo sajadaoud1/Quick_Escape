@@ -8,8 +8,10 @@ extends CharacterBody2D
 @export var diamond_scene: PackedScene
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-signal health_changed(current_health) # إشارة لتحديث القلوب في الواجهة
-
+signal health_changed(current_health) 
+# إشارة لتحديث القلوب في الواجهة
+signal coin_collected(current_amount) # إشارة لإرسال عدد العملات للواجهة
+var coins_collected := 0 # متغير لتخزين عدد العملات التي جمعها اللاعب
 @export var max_health: int = 3
 var current_health: int
 
@@ -139,6 +141,10 @@ func remove_key():
 func collect_diamond():
 	diamonds += 1
 	print("Diamonds:", diamonds)
+
+func collect_coin():
+	coins_collected += 1
+	coin_collected.emit(coins_collected) # نرسل العدد الجديد للواجهة فوراً
 	
 func spawn_diamond(cell: Vector2i):
 	var diamond = diamond_scene.instantiate()
@@ -215,7 +221,15 @@ func spawn_diamond_delayed(cell: Vector2i):
 	spawn_diamond(cell)
 
 func die():
-	get_tree().reload_current_scene()
+	# سنقوم بتعطيل حركة اللاعب لكي لا يتحرك وهو يموت
+	set_physics_process(false)
+	
+	# ننتظر لمدة ثانية واحدة (أو حسب طول أنيميشن القتل عند العدو)
+	# هذا سيعطي وقتاً للعدو لينهي حركة القتل "kill"
+	await get_tree().create_timer(1.0).timeout
+	
+	# الآن نعيد تشغيل اللعبة
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	
 func add_time(amount: int):
 	var ui = get_parent().get_node_or_null("UI")
