@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bkib0k0wgfsnu"]
+[gd_scene load_steps=45 format=4 uid="uid://cidqlp5f40pcd"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1nwmf"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="2_5f5xw"]
@@ -6355,7 +6355,7 @@ position = Vector2(390, 257)
 position = Vector2(390, 244)
 
 [node name="coin16" parent="Coins" instance=ExtResource("14_2qmps")]
-position = Vector2(187, 309)
+position = Vector2(185, 310)
 
 [node name="coin17" parent="Coins" instance=ExtResource("14_2qmps")]
 position = Vector2(186, 297)
