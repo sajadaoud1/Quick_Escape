@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://7kw0240kjm0g" path="res://assets/Screenshot 2025-12-22 052001.png" id="7_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dywmwxnw64xdu" path="res://assets/Screenshot 2025-12-22 052016.png" id="8_iwr0g"]
 [ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="9_bahl2"]
-[ext_resource type="AudioStream" uid="uid://tn684ndrvxyq" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
+[ext_resource type="AudioStream" uid="uid://1inef04axlpj" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="11_excbq"]
 [ext_resource type="PackedScene" uid="uid://c5yy5fsyf5px1" path="res://scenes/breakable_stone.tscn" id="13_dnkej"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="13_mm8aj"]
+[ext_resource type="Script" uid="uid://dhvgqbym6mjg8" path="res://scripts/hearts_container.gd" id="14_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://c8h8aygwktwyi" path="res://scenes/key.tscn" id="14_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://4h2bsqgnxw0e" path="res://scenes/box.tscn" id="15_wtwp4"]
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="16_iwr0g"]
@@ -657,6 +658,11 @@ position = Vector2(971, 458)
 
 [node name="UI" parent="." instance=ExtResource("13_mm8aj")]
 
+[node name="HeartsContainer" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_iwr0g")
+
 [node name="key" parent="." instance=ExtResource("14_mm8aj")]
 position = Vector2(504, 168)
 
@@ -667,4 +673,6 @@ position = Vector2(905, 408)
 script = ExtResource("16_iwr0g")
 
 [connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]
+[connection signal="health_changed" from="Player" to="UI/HeartsContainer" method="update_hearts"]
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
