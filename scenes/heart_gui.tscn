@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cchi3xpsu0u32"]
+[gd_scene load_steps=3 format=3 uid="uid://cchi3xpsu0u32"]
 
-[ext_resource type="Texture2D" uid="uid://b2jeg3y5af2in" path="res://assets/Pixel Heart Sprite Sheet 16x16 - Copy.png" id="1_l0qp3"]
+[ext_resource type="Texture2D" path="res://assets/Pixel Heart Sprite Sheet 16x16 - Copy.png" id="1_l0qp3"]
+[ext_resource type="Script" uid="uid://dmpsl7so4xtbc" path="res://scripts/heart_gui.gd" id="2_x0egl"]
 
 [node name="HeartGui" type="TextureRect"]
 custom_minimum_size = Vector2(32, 32)
@@ -9,3 +10,4 @@ offset_bottom = 187.0
 texture = ExtResource("1_l0qp3")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_x0egl")

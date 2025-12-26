@@ -1,21 +1,22 @@
-[gd_scene load_steps=44 format=4 uid="uid://upp7tuc3lu0f"]
+[gd_scene load_steps=43 format=4 uid="uid://upp7tuc3lu0f"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1yj8c"]
-[ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="1_fiq81"]
-[ext_resource type="Texture2D" uid="uid://c666isrbrvyut" path="res://assets/Tiled_files/doors_lever_chest_animation.png" id="2_l37oo"]
-[ext_resource type="Texture2D" uid="uid://btpn3tag4s6h4" path="res://assets/Tiled_files/walls_floor.png" id="3_qpwj6"]
+[ext_resource type="Texture2D" uid="uid://1w8kpvgkfe3r" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="1_fiq81"]
+[ext_resource type="Texture2D" uid="uid://bdohupjm47l48" path="res://assets/Tiled_files/doors_lever_chest_animation.png" id="2_l37oo"]
+[ext_resource type="Texture2D" uid="uid://on8cr80h7ybt" path="res://assets/Tiled_files/walls_floor.png" id="3_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://nq08bsoe8dk1" path="res://scenes/player.tscn" id="4_ibugp"]
-[ext_resource type="Texture2D" uid="uid://dq2b3oqygfk25" path="res://assets/Tiled_files/fire_animation.png" id="4_l37oo"]
+[ext_resource type="Texture2D" uid="uid://bykgul0fp0nr2" path="res://assets/Tiled_files/fire_animation.png" id="4_l37oo"]
 [ext_resource type="PackedScene" uid="uid://b2ffcwtr6hc3m" path="res://scenes/diamond.tscn" id="6_brxtv"]
-[ext_resource type="Texture2D" uid="uid://dty28o2ubewtl" path="res://assets/Tiled_files/Objects.png" id="6_ibugp"]
+[ext_resource type="Texture2D" uid="uid://cfxtcl3wsth54" path="res://assets/Tiled_files/Objects.png" id="6_ibugp"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="6_qpwj6"]
-[ext_resource type="Texture2D" uid="uid://b5gfpcrv0pkgm" path="res://assets/Tiled_files/Water_coasts_animation.png" id="7_nt80m"]
-[ext_resource type="Texture2D" uid="uid://d0s617v2y43xd" path="res://assets/Tiled_files/water_details_animation.png" id="8_brxtv"]
-[ext_resource type="Texture2D" uid="uid://xdffkqa863ka" path="res://assets/Tiled_files/decorative_cracks_coasts_animation.png" id="9_tv7cl"]
-[ext_resource type="Texture2D" uid="uid://bv5gayyyvjc38" path="res://assets/Tiled_files/trap_animation.png" id="12_brxtv"]
-[ext_resource type="AudioStream" uid="uid://tn684ndrvxyq" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="13_tv7cl"]
+[ext_resource type="Texture2D" uid="uid://chdp14v532dff" path="res://assets/Tiled_files/Water_coasts_animation.png" id="7_nt80m"]
+[ext_resource type="Texture2D" uid="uid://bn6pcy6162j5h" path="res://assets/Tiled_files/water_details_animation.png" id="8_brxtv"]
+[ext_resource type="Texture2D" uid="uid://c0wkbm64akjtb" path="res://assets/Tiled_files/decorative_cracks_coasts_animation.png" id="9_tv7cl"]
+[ext_resource type="Texture2D" uid="uid://c84gjsv2a24bb" path="res://assets/Tiled_files/trap_animation.png" id="12_brxtv"]
+[ext_resource type="AudioStream" uid="uid://1inef04axlpj" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dfqomqmwgmwgx" path="res://scenes/coin.tscn" id="14_r88tb"]
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="16_ndlae"]
+[ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/coin_counter.tscn" id="17_sibr7"]
 [ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/enemy_s.tscn" id="17_v8d84"]
 [ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/apple.tscn" id="18_gw1l3"]
 [ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/melon.tscn" id="19_p4se4"]
@@ -6366,6 +6367,12 @@ script = ExtResource("16_ndlae")
 
 [node name="UI" parent="." instance=ExtResource("6_qpwj6")]
 
+[node name="CoinCounter" parent="UI" instance=ExtResource("17_sibr7")]
+offset_left = 12.0
+offset_top = 38.0
+offset_right = 85.0
+offset_bottom = 78.0
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy_s" parent="Enemies" instance=ExtResource("17_v8d84")]
@@ -6397,4 +6404,5 @@ position = Vector2(129, 34)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
+[connection signal="coin_collected" from="Player" to="UI" method="_on_player_coin_collected"]
 [connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]

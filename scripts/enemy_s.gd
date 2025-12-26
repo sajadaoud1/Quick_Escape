@@ -25,7 +25,15 @@ func _physics_process(delta):
 
 func turn():
 	direction *= -1
+	# قلب صورة الركض العادية
 	sprite.flip_h = direction == -1
+	
+	# تحريك منطقة القتل (المستطيل البرتقالي) لجهة اتجاه العدو
+	# إذا كانت المنطقة في المنتصف، قد تحتاج لتعديل الـ Position بدلاً من الـ Scale
+	if direction == -1:
+		$KillArea.position.x = -abs($KillArea.position.x)
+	else:
+		$KillArea.position.x = abs($KillArea.position.x)
 
 
 func _on_kill_area_body_entered(body: Node2D) -> void:
@@ -36,23 +44,16 @@ func kill_player(player):
 	attacking = true
 	velocity = Vector2.ZERO
 	
-	# 1. تشغيل أنيميشن القتل
-	sprite.play("kill")
+	# اختيار الأنيميشن بناءً على الاتجاه
+	if direction == 1:
+		sprite.play("kill")      # أنيميشن القتل لجهة اليمين
+	else:
+		sprite.play("kill_left") # تأكد أن هذا هو اسم الأنيميشن عندك لجهة اليسار
 	
-	# 2. خصم حياة اللاعب (سينقص القلب الأخير هنا)
 	if player.has_method("take_damage"):
-		# سنقوم بتعديل بسيط هنا: نخصم الصحة لكن نمنع الموت الفوري
-		player.current_health -= 1
-		player.current_health = clampi(player.current_health, 0, player.max_health)
-		player.health_changed.emit(player.current_health)
+		player.take_damage(1)
 	
-	# 3. انتظر حتى ينتهي أنيميشن العدو وهو يضرب
 	await sprite.animation_finished
 	
-	# 4. الآن نتحقق: إذا كانت صحة اللاعب 0، نقتله فعلياً
-	if player.current_health <= 0:
-		player.die()
-	else:
-		# إذا لم يمت، يكمل العدو الركض
-		attacking = false 
-		sprite.play("run")
+	attacking = false 
+	sprite.play("run")
