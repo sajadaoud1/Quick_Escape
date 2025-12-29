@@ -15,6 +15,13 @@ func _ready() -> void:
 	get_tree().paused = false
 	GameData.current_level_path = scene_file_path
 
+	var coins = get_tree().get_nodes_in_group("coins")
+	GameData.level_total_coins = coins.size()
+	GameData.level_coins_collected = 0
+
+	var ui = get_tree().get_first_node_in_group("ui")
+	if ui:
+		ui.refresh_ui()
 
 func _on_level_completed():
 	GameData.unlock_next_level(level_number)

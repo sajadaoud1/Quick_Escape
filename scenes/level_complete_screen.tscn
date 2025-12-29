@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6m1jpqpke4bn"]
+[gd_scene load_steps=5 format=3 uid="uid://6m1jpqpke4bn"]
 
 [ext_resource type="Script" uid="uid://c0ipkj1l3k5ww" path="res://scripts/level_complete_screen.gd" id="1_mcvgn"]
 [ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="2_du5ev"]
 [ext_resource type="AudioStream" uid="uid://vgv1i3tdtdf" path="res://scripts/Victory.mp3" id="3_mcvgn"]
+[ext_resource type="Texture2D" uid="uid://cqi1n0per53e6" path="res://assets/Star.png" id="4_du5ev"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.0
-offset_top = 23.0
-offset_right = 166.0
-offset_bottom = 72.0
+offset_left = -178.0
+offset_top = 67.0
+offset_right = 141.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -59,10 +60,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -60.0
-offset_right = 40.0
-offset_bottom = -37.0
+offset_left = -79.0
+offset_top = -76.0
+offset_right = 50.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 29
@@ -72,6 +73,30 @@ horizontal_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mcvgn")
 autoplay = true
+
+[node name="star3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 268.0
+offset_right = 589.0
+offset_bottom = 366.0
+texture = ExtResource("4_du5ev")
+
+[node name="star1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 289.0
+offset_right = 534.5
+offset_bottom = 387.0
+texture = ExtResource("4_du5ev")
+
+[node name="star2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 292.0
+offset_right = 640.0
+offset_bottom = 383.0
+texture = ExtResource("4_du5ev")
 
 [connection signal="pressed" from="HBoxContainer/NextBtn" to="." method="_on_next_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]

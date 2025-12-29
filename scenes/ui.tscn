@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crfhutilbxk6l" path="res://assets/Menu/menuList.png" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://hqibn0ar1vc7" path="res://scripts/ui.gd" id="1_x4jx1"]
-[ext_resource type="Script" path="res://scripts/hearts_container.gd" id="3_yev5y"]
+[ext_resource type="Script" uid="uid://dhvgqbym6mjg8" path="res://scripts/hearts_container.gd" id="3_yev5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iav0o"]
 bg_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
@@ -28,7 +28,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_x4jx1")
 
 [node name="Menu_Btn" type="Button" parent="."]

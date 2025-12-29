@@ -24,6 +24,7 @@ var diamonds := 0
 
 var is_invincible := false # هل اللاعب في وضع الحماية؟
 
+
 func _ready():
 	current_health = max_health
 	# ننتظر قليلاً للتأكد من أن الواجهة جاهزة قبل إرسال أول تحديث
@@ -143,8 +144,12 @@ func collect_diamond():
 	print("Diamonds:", diamonds)
 
 func collect_coin():
-	coins_collected += 1
-	coin_collected.emit(coins_collected) # نرسل العدد الجديد للواجهة فوراً
+	GameData.level_coins_collected += 1
+ 
+	# refresh UI safely
+	var ui = get_tree().get_first_node_in_group("ui")
+	if ui:
+		ui.refresh_ui()
 	
 func spawn_diamond(cell: Vector2i):
 	var diamond = diamond_scene.instantiate()

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 extends CanvasLayer
 
 @onready var menu_options: Panel = $MenuOptions
@@ -19,7 +13,6 @@ func _ready() -> void:
 	
 	# حساب إجمالي العملات في المرحلة عند البدء (يجب أن تكون العملات في مجموعة اسمها coins)
 	var total = get_tree().get_nodes_in_group("coins").size()
-	coin_counter.set_total_coins(total)
 
 func _process(_delta):
 	timer_label.text = "Time: " + str(ceil(level_timer.time_left))
@@ -28,13 +21,6 @@ func _on_player_health_changed(current_health: int) -> void:
 	# أرسلنا الرقم 3 كحد أقصى للصحة لحل خطأ الـ Expected 2 arguments
 	hearts_container.update_hearts(current_health, 3) 
 
-func _on_player_coin_collected(new_coin_count: int):
-	coin_counter.update_coins(new_coin_count)
-
-# هذه الدالة لتحديد إجمالي العملات في بداية المرحلة
-func set_level_total_coins(total: int):
-	coin_counter.set_total_coins(total)
-	
 # --- دوال الأزرار والتايمر المتبقية ---
 func _on_menu_icon_pressed() -> void:
 	menu_options.visible = !menu_options.visible
@@ -68,3 +54,6 @@ func add_time(amount: int):
 	level_timer.stop()
 	level_timer.wait_time = remaining + amount
 	level_timer.start()
+	
+func refresh_ui():
+	coin_counter.update_display()
