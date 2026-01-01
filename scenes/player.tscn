@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://nq08bsoe8dk1"]
 
 [ext_resource type="Script" uid="uid://dxnivi1u0l25o" path="res://scripts/player.gd" id="1_dqkch"]
-[ext_resource type="Texture2D" uid="uid://dpr5jssoy2jgg" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dyuoayy43nuoy" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://cf2rcmyacgdx6" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://scmbfrhb7e7e" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://buw2vod1kldt3" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://ccvek2ho5qley" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="6_tuyoq"]
 

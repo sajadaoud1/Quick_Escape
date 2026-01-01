@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://4h2bsqgnxw0e"]
 
-[ext_resource type="Texture2D" uid="uid://xbdrcivjd7xn" path="res://assets/Tiled_files/box.png" id="1_3inec"]
+[ext_resource type="Texture2D" uid="uid://dq62sh8hsmp05" path="res://assets/Tiled_files/box.png" id="1_3inec"]
 [ext_resource type="Script" uid="uid://boepmsi17k5ev" path="res://scripts/box.gd" id="1_ks2v0"]
-[ext_resource type="PackedScene" uid="uid://b2ffcwtr6hc3m" path="res://scenes/diamond.tscn" id="2_telwu"]
-[ext_resource type="AudioStream" uid="uid://bsowsbybkv61f" path="res://music/openbox.mp3" id="3_c2ln5"]
+[ext_resource type="PackedScene" uid="uid://b2ffcwtr6hc3m" path="res://scenes/fruit and coins/diamond.tscn" id="2_telwu"]
+[ext_resource type="AudioStream" uid="uid://boxvidpjxryax" path="res://music/openbox.mp3" id="3_c2ln5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks2v0"]
 size = Vector2(24, 14)

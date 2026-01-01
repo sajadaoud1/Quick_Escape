@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://oug24pwvv3ke"]
 
 [ext_resource type="Script" uid="uid://bi2efxl6hkdjh" path="res://scripts/coin_counter.gd" id="1_bgwb7"]
-[ext_resource type="PackedScene" uid="uid://db84obhidk4yx" path="res://scenes/coin_display.tscn" id="2_hh2am"]
+[ext_resource type="PackedScene" uid="uid://db84obhidk4yx" path="res://scenes/fruit and coins/coin_display.tscn" id="2_hh2am"]
 
 [sub_resource type="FontFile" id="FontFile_mp0xb"]
 cache/0/16/0/ascent = 0.0

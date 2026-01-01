@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cidqlp5f40pcd"]
+[gd_scene load_steps=45 format=4 uid="uid://cr1q40asb3uek"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1nwmf"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="2_5f5xw"]
@@ -7,19 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dq2b3oqygfk25" path="res://assets/Tiled_files/fire_animation.png" id="5_kva3v"]
 [ext_resource type="Texture2D" uid="uid://dty28o2ubewtl" path="res://assets/Tiled_files/Objects.png" id="6_jql0x"]
 [ext_resource type="PackedScene" uid="uid://nq08bsoe8dk1" path="res://scenes/player.tscn" id="7_do6pa"]
-[ext_resource type="PackedScene" uid="uid://b2ffcwtr6hc3m" path="res://scenes/diamond.tscn" id="8_n8qcm"]
+[ext_resource type="PackedScene" uid="uid://b2ffcwtr6hc3m" path="res://scenes/fruit and coins/diamond.tscn" id="8_n8qcm"]
 [ext_resource type="Texture2D" uid="uid://b5gfpcrv0pkgm" path="res://assets/Tiled_files/Water_coasts_animation.png" id="9_aey3y"]
 [ext_resource type="Texture2D" uid="uid://d0s617v2y43xd" path="res://assets/Tiled_files/water_details_animation.png" id="10_k0dme"]
 [ext_resource type="Texture2D" uid="uid://xdffkqa863ka" path="res://assets/Tiled_files/decorative_cracks_coasts_animation.png" id="11_o5em7"]
 [ext_resource type="Texture2D" uid="uid://bv5gayyyvjc38" path="res://assets/Tiled_files/trap_animation.png" id="12_22mqa"]
 [ext_resource type="AudioStream" uid="uid://1inef04axlpj" path="res://music/Adventure pack 1 ogg/fantasy Dragon.ogg" id="13_6c6bd"]
-[ext_resource type="PackedScene" uid="uid://dfqomqmwgmwgx" path="res://scenes/coin.tscn" id="14_2qmps"]
+[ext_resource type="PackedScene" uid="uid://dfqomqmwgmwgx" path="res://scenes/fruit and coins/coin.tscn" id="14_2qmps"]
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="15_gtyp3"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="16_n7m6w"]
-[ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/coin_counter.tscn" id="17_ju8vr"]
+[ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/fruit and coins/coin_counter.tscn" id="17_ju8vr"]
 [ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/enemy_s.tscn" id="18_tio2m"]
-[ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/apple.tscn" id="19_p0p7o"]
-[ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/melon.tscn" id="20_jnyl3"]
+[ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/fruit and coins/apple.tscn" id="19_p0p7o"]
+[ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/fruit and coins/melon.tscn" id="20_jnyl3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qukl"]
 texture = ExtResource("2_5f5xw")
@@ -6266,7 +6266,7 @@ sources/5 = SubResource("TileSetAtlasSource_lkn2k")
 sources/6 = SubResource("TileSetAtlasSource_sbygb")
 sources/1 = SubResource("TileSetAtlasSource_5niy6")
 
-[node name="Level3" type="Node2D"]
+[node name="Level2" type="Node2D"]
 position = Vector2(1, 1)
 script = ExtResource("1_1nwmf")
 

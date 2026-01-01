@@ -96,40 +96,6 @@ func play_walk_animation(dir: Vector2):
 		else:
 			anim.play("walk_back")
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		attack()
-
-func attack():
-	var breakables = get_tree().get_nodes_in_group("breakable")
-	var closest_box = null
-	var closest_distance = attack_range
-	
-	for box in breakables:
-		var to_box = box.global_position - global_position
-		var distance = to_box.length()
-		
-		var direction_match = false
-
-		if abs(last_dir.x) > abs(last_dir.y):
-			if last_dir.x > 0:
-				direction_match = to_box.x > 0 and abs(to_box.y) < 20
-			else:
-				direction_match = to_box.x < 0 and abs(to_box.y) < 20
-		else:
-			if last_dir.y > 0:
-				direction_match = to_box.y > 0 and abs(to_box.x) < 20
-			else:
-				direction_match = to_box.y < 0 and abs(to_box.x) < 20
-		
-		if direction_match and distance <= attack_range and distance < closest_distance:
-			closest_box = box
-			closest_distance = distance
-	
-	if closest_box and closest_box.has_method("take_damage"):
-		closest_box.take_damage(attack_damage)
-
-
 func pick_key():
 	has_key = true
 	$KeyInHand.visible = true
