@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="15_ninaw"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="16_2vq5a"]
 [ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/fruit and coins/coin_counter.tscn" id="17_ieqpx"]
-[ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/enemy_s.tscn" id="18_ips30"]
+[ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/Traps and enemies/enemy_s.tscn" id="18_ips30"]
 [ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/fruit and coins/apple.tscn" id="19_ofbdg"]
 [ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/fruit and coins/melon.tscn" id="20_wjfic"]
 [ext_resource type="Script" uid="uid://cac00dxcdhisv" path="res://scripts/controls_root.gd" id="21_k0dme"]

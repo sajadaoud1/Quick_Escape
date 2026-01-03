@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bfkqr0w44sxoy"]
+[gd_scene load_steps=55 format=4 uid="uid://bfkqr0w44sxoy"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_beuva"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="2_05se8"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="15_4luak"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="16_6b6qc"]
 [ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/fruit and coins/coin_counter.tscn" id="17_4aa1a"]
-[ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/enemy_s.tscn" id="18_jky1q"]
+[ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/Traps and enemies/enemy_s.tscn" id="18_jky1q"]
 [ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/fruit and coins/apple.tscn" id="19_lbwwd"]
 [ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/fruit and coins/melon.tscn" id="20_fgtm3"]
 [ext_resource type="Script" uid="uid://cac00dxcdhisv" path="res://scripts/controls_root.gd" id="21_8hw10"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://blqokw0b5k6jp" path="res://assets/arrowUpD.png" id="27_6b6qc"]
 [ext_resource type="Texture2D" uid="uid://bne7ms4dm7wu4" path="res://assets/arrowDown.png" id="28_4aa1a"]
 [ext_resource type="Texture2D" uid="uid://iqcn8fuid5sj" path="res://assets/arrowDownD.png" id="29_jky1q"]
+[ext_resource type="PackedScene" uid="uid://b4w3vseuo6nq1" path="res://scenes/Traps and enemies/trap_1.tscn" id="30_1s8bw"]
+[ext_resource type="PackedScene" uid="uid://7uq2o5hd4xaw" path="res://scenes/Traps and enemies/trap_2.tscn" id="31_dorgx"]
+[ext_resource type="PackedScene" uid="uid://rcwc8uyrtm40" path="res://scenes/Traps and enemies/trap_3.tscn" id="32_y0jd0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qukl"]
 texture = ExtResource("2_05se8")
@@ -6293,7 +6296,7 @@ tile_map_data = PackedByteArray("AAD1//v/AAAAAAAAAAD1//z/AAAAAAEAAAD1//3/AAAAAAI
 tile_set = SubResource("TileSet_8qukl")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." groups=["world_tiles"]]
-tile_map_data = PackedByteArray("AAAUAAcABAAbAB8AAAASAAYAAwADAB0AAAASAAcABAARACMAAAATAAYABAASACIAAAATAAcABAASACMAAAAUAAYABAATACIAAAAVAAYAAwAHABsAAAAVAAcABAAcAB8AAAAWAAYAAwACAB0AAAAWAAcABAAdAB8AAAAXAAYAAwACAB0AAAAXAAcABAAeAB8AAAAYAAYAAwACAB0AAAAYAAcABAAXACMAAAAUAAgABAAbACAAAAAVAAgABAAcACAAAAAWAAgABAAdACAAAAAWAAkABAAdAB4AAAAXAAkABAAeAB4AAAAYAAkABAAfAB4AAAATAAQAAwAGABoAAAAUAAQAAwAGABoAAAAMAAYAAwACAB0AAAANAAYAAwACAB0AAAAOAAYAAwACAB0AAAAPAAYAAwACAB0AAAAQAAYAAwACAB0AAAARAAYAAwACAB0AAAAMAAcABAAYABsAAAANAAcABAAZABsAAAAOAAcABAAaABsAAAAPAAcABAAhACAAAAAMAAkABAAeACIAAAANAAkABAAhACAAAAAMAAgABAAYABwAAAANAAgABAAZABwAAAAOAAgABAAaABwAAAAPAAgABAAbABwAAAAVAAoABAAZABsAAAAWAAoABAAhABwAAAAXAAoABAAiABwAAAAYAAoABAAjABwAAAAXAAsABAAhACAAAAAXAAwABAAhACAAAAATAAUABAAhACAAAAAUAAUABAAiACAAAAANAAoABAAhACAAAAAXAAgABAAhACAAAAAYAAgABAAiACAAAAATAAgABAAhACAAAAAWAP3/AQACAAEAAAAWAP7/AQACAAIAAAAXAP3/AQADAAEAAAAXAP7/AQADAAIAAAAEAAwABgABAAIAAAAEAA0ABgABAAMAAAAEAA4ABgABAAQAAAAEAA8ABgABAAUAAAAFAAwABgACAAIAAAAFAA8ABgACAAUAAAAGAAwABgADAAIAAAAGAA0ABgADAAMAAAAGAA4ABgADAAQAAAAGAA8ABgADAAUAAAAOAAAABgAFAAIAAAAOAAEABgAFAAMAAAAOAAIABgAFAAQAAAAOAAMABgAFAAUAAAAPAAAABgAGAAIAAAAPAAEABgAGAAMAAAAPAAIABgAGAAQAAAAPAAMABgAGAAUAAAAQAAAABgAHAAIAAAAQAAEABgAHAAMAAAAQAAIABgAHAAQAAAAQAAMABgAHAAUAAAARAAMABgAIAAUAAAANAA4ABgAJAAMAAAAOAA0ABgAKAAIAAAAOAA4ABgAKAAMAAAAOAA8ABgAKAAQAAAAOABAABgAKAAUAAAAPAA4ABgALAAMAAAATABUABQASAAQAAAACAP//BQAJAAEAAAACAAAABQAJAAIAAAADAP//BQAKAAEAAAADAAAABQAKAAIAAAA=")
+tile_map_data = PackedByteArray("AAAUAAcABAAbAB8AAAASAAYAAwADAB0AAAASAAcABAARACMAAAATAAYABAASACIAAAATAAcABAASACMAAAAUAAYABAATACIAAAAVAAYAAwAHABsAAAAVAAcABAAcAB8AAAAWAAYAAwACAB0AAAAWAAcABAAdAB8AAAAXAAYAAwACAB0AAAAXAAcABAAeAB8AAAAYAAYAAwACAB0AAAAYAAcABAAXACMAAAAUAAgABAAbACAAAAAVAAgABAAcACAAAAAWAAgABAAdACAAAAAWAAkABAAdAB4AAAAXAAkABAAeAB4AAAAYAAkABAAfAB4AAAATAAQAAwAGABoAAAAUAAQAAwAGABoAAAAMAAYAAwACAB0AAAANAAYAAwACAB0AAAAOAAYAAwACAB0AAAAPAAYAAwACAB0AAAAQAAYAAwACAB0AAAARAAYAAwACAB0AAAAMAAcABAAYABsAAAANAAcABAAZABsAAAAOAAcABAAaABsAAAAPAAcABAAhACAAAAAMAAkABAAeACIAAAANAAkABAAhACAAAAAMAAgABAAYABwAAAANAAgABAAZABwAAAAOAAgABAAaABwAAAAPAAgABAAbABwAAAAVAAoABAAZABsAAAAWAAoABAAhABwAAAAXAAoABAAiABwAAAAYAAoABAAjABwAAAAXAAsABAAhACAAAAAXAAwABAAhACAAAAATAAUABAAhACAAAAAUAAUABAAiACAAAAANAAoABAAhACAAAAAXAAgABAAhACAAAAAYAAgABAAiACAAAAATAAgABAAhACAAAAAWAP3/AQACAAEAAAAWAP7/AQACAAIAAAAXAP3/AQADAAEAAAAXAP7/AQADAAIAAAATABUABQASAAQAAAACAP//BQAJAAEAAAACAAAABQAJAAIAAAADAP//BQAKAAEAAAADAAAABQAKAAIAAAA=")
 tile_set = SubResource("TileSet_sibr7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -6491,6 +6494,17 @@ offset_bottom = 18.0
 grow_vertical = 0
 texture_normal = ExtResource("28_4aa1a")
 texture_pressed = ExtResource("29_jky1q")
+
+[node name="Traps" type="Node" parent="."]
+
+[node name="Trap1" parent="Traps" instance=ExtResource("30_1s8bw")]
+position = Vector2(248, 18)
+
+[node name="Trap2" parent="Traps" instance=ExtResource("31_dorgx")]
+position = Vector2(80, 203)
+
+[node name="Trap3" parent="Traps" instance=ExtResource("32_y0jd0")]
+position = Vector2(257, 228)
 
 [connection signal="coin_collected" from="Player" to="UI" method="_on_player_coin_collected"]
 [connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]

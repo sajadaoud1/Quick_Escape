@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://blv7lvtoda8wt"]
+[gd_scene load_steps=7 format=3 uid="uid://blv7lvtoda8wt"]
 
 [ext_resource type="Texture2D" uid="uid://crfhutilbxk6l" path="res://assets/Menu/menuList.png" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://hqibn0ar1vc7" path="res://scripts/ui.gd" id="1_x4jx1"]
 [ext_resource type="Script" uid="uid://dhvgqbym6mjg8" path="res://scripts/hearts_container.gd" id="3_yev5y"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iav0o"]
-bg_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnkej"]
 bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
@@ -43,34 +40,36 @@ icon = ExtResource("1_nt7q6")
 
 [node name="MenuOptions" type="Panel" parent="."]
 process_mode = 3
-offset_left = 977.0
-offset_top = 58.0
-offset_right = 1150.0
-offset_bottom = 530.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_iav0o")
+offset_left = 134.0
+offset_top = 95.0
+offset_right = 1077.0
+offset_bottom = 567.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuOptions"]
 process_mode = 3
 layout_mode = 0
-offset_left = 15.0
-offset_top = 54.0
-offset_right = 167.0
-offset_bottom = 216.0
-theme_override_constants/separation = 18
+offset_left = 238.0
+offset_top = 194.0
+offset_right = 665.0
+offset_bottom = 437.0
+theme_override_constants/separation = 10
 
 [node name="LevelsBtn" type="Button" parent="MenuOptions/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_dnkej")
 text = "Levels"
 
 [node name="MenuBtn" type="Button" parent="MenuOptions/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_mm8aj")
 text = "Main Menu"
 
 [node name="ExitBtn" type="Button" parent="MenuOptions/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
 text = "Exit"
@@ -78,9 +77,26 @@ text = "Exit"
 [node name="RetryBtn" type="Button" parent="MenuOptions/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtwp4")
 text = "Retry"
+
+[node name="Label" type="Label" parent="MenuOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -141.0
+offset_right = 145.5
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "GAME PAUSED"
 
 [node name="TimerLabel" type="Label" parent="."]
 anchors_preset = 5

@@ -1,9 +1,9 @@
 extends Control
 
 func _ready() -> void:
-	if not OS.has_feature("mobile"):
+	if not DisplayServer.is_touchscreen_available():
 		visible = false
-	
+
 func _on_btn_left_button_up() -> void:
 	Input.action_release("left")
 
