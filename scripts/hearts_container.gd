@@ -2,7 +2,6 @@ extends HBoxContainer
 
 @onready var heart_gui_class = preload("res://scenes/heart_gui.tscn")
 
-# نفرض أن أقصى عدد قلوب هو 5 مثلاً، أو استقبله كمتغير
 func update_hearts(current_health: int, max_health: int):
 	# إذا كانت القلوب غير موجودة أصلاً (أول مرة)، ننشئها بعدد الـ max_health
 	if get_child_count() != max_health:

@@ -32,17 +32,18 @@ func _ready():
 	health_changed.emit(current_health)
 	
 func take_damage(amount: int):
-	if is_invincible: # إذا كان اللاعب محمياً، لا نفعل شيئاً
+	if is_invincible:
 		return
 	current_health -= amount
-	current_health = clampi(current_health, 0, max_health) # لضمان عدم نزول الصحة تحت الصفر
+	current_health = clampi(current_health, 0, max_health)
 	
-	health_changed.emit(current_health) # أخبر الواجهة أن الصحة تغيرت
+	health_changed.emit(current_health)
 	if current_health <= 0:
-		die() # استدعاء دالة الموت الموجودة أصلاً في كودك
+		die()
 	else:
 		$KillSound.play()
-		start_invincibility() # تفعيل وضع الحماية مؤقتاً
+		start_invincibility()
+
 func start_invincibility():
 	is_invincible = true
 	# جعل اللاعب يومض (شفافية 50%)
@@ -52,7 +53,7 @@ func start_invincibility():
 	await get_tree().create_timer(1.0).timeout 
 	
 	is_invincible = false
-	anim.modulate.a = 1.0 # إعادة اللاعب لشكلة الطبيعي
+	anim.modulate.a = 1.0 
 	
 func _physics_process(delta):
 	var dir := Vector2.ZERO

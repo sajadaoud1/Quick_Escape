@@ -4,24 +4,21 @@ extends CanvasLayer
 @onready var timer_label: Label = $TimerLabel
 @onready var level_timer: Timer = $LevelTimer
 @onready var hearts_container: HBoxContainer = $HeartsContainer2
-@onready var coin_counter = $CoinCounter # تأكد من إضافة المشهد في tscn بنفس الاسم
+@onready var coin_counter = $CoinCounter 
 
 func _ready() -> void:
 	get_tree().paused = false
 	menu_options.visible = false
 	level_timer.start()
 	
-	# حساب إجمالي العملات في المرحلة عند البدء (يجب أن تكون العملات في مجموعة اسمها coins)
 	var total = get_tree().get_nodes_in_group("coins").size()
 
 func _process(_delta):
 	timer_label.text = "Time: " + str(ceil(level_timer.time_left))
 
 func _on_player_health_changed(current_health: int) -> void:
-	# أرسلنا الرقم 3 كحد أقصى للصحة لحل خطأ الـ Expected 2 arguments
 	hearts_container.update_hearts(current_health, 3) 
 
-# --- دوال الأزرار والتايمر المتبقية ---
 func _on_menu_icon_pressed() -> void:
 	menu_options.visible = !menu_options.visible
 	get_tree().paused = menu_options.visible

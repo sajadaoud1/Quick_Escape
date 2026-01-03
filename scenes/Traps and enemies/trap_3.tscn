@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://rcwc8uyrtm40"]
+[gd_scene load_steps=9 format=3 uid="uid://rcwc8uyrtm40"]
 
 [ext_resource type="Texture2D" uid="uid://bv5gayyyvjc38" path="res://assets/Tiled_files/trap_animation.png" id="1_a7e1l"]
+[ext_resource type="Script" uid="uid://d21fvrr8n6jtu" path="res://scripts/trap_1.gd" id="1_ij2kr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij2kr"]
 atlas = ExtResource("1_a7e1l")
@@ -39,13 +40,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sgqrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seeev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x012")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oa31")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 7.0
 }]
 
-[node name="Trap1" type="Area2D"]
+[node name="Trap3" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ij2kr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
