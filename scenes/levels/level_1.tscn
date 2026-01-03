@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://blw72xv0ntr1t"]
+[gd_scene load_steps=51 format=4 uid="uid://blw72xv0ntr1t"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="1_fiq81"]
@@ -19,6 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/fruit and coins/coin_counter.tscn" id="17_sibr7"]
 [ext_resource type="PackedScene" uid="uid://bsefliqwia6wt" path="res://scenes/fruit and coins/apple.tscn" id="18_gw1l3"]
 [ext_resource type="PackedScene" uid="uid://c1a5fc5ffa64j" path="res://scenes/fruit and coins/melon.tscn" id="19_p4se4"]
+[ext_resource type="Texture2D" uid="uid://c5m8rxrtgu3sr" path="res://assets/arrowLeft.png" id="20_7o3do"]
+[ext_resource type="Script" uid="uid://cac00dxcdhisv" path="res://scripts/controls_root.gd" id="20_x7jkp"]
+[ext_resource type="Texture2D" uid="uid://cpy023f7mc134" path="res://assets/arrowLeftD.png" id="21_o7j4k"]
+[ext_resource type="Texture2D" uid="uid://ma57r5hto5oe" path="res://assets/arrowRight.png" id="22_31oqk"]
+[ext_resource type="Texture2D" uid="uid://bgnglpqupb6lc" path="res://assets/arrowRightD.png" id="23_x7jkp"]
+[ext_resource type="Texture2D" uid="uid://dlh1jk14n4whq" path="res://assets/arrowUp.png" id="24_0qwwm"]
+[ext_resource type="Texture2D" uid="uid://blqokw0b5k6jp" path="res://assets/arrowUpD.png" id="25_t4umt"]
+[ext_resource type="Texture2D" uid="uid://bne7ms4dm7wu4" path="res://assets/arrowDown.png" id="26_31oqk"]
+[ext_resource type="Texture2D" uid="uid://iqcn8fuid5sj" path="res://assets/arrowDownD.png" id="27_x7jkp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qukl"]
 texture = ExtResource("1_fiq81")
@@ -6407,5 +6416,77 @@ position = Vector2(392, 327)
 [node name="melon3" parent="Fruits" instance=ExtResource("19_p4se4")]
 position = Vector2(129, 34)
 
+[node name="MobileControls" type="CanvasLayer" parent="."]
+
+[node name="ControlsRoot" type="Control" parent="MobileControls"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("20_x7jkp")
+
+[node name="BtnLeft" type="TextureButton" parent="MobileControls/ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -155.0
+offset_right = 87.0
+offset_bottom = -55.0
+grow_vertical = 0
+texture_normal = ExtResource("20_7o3do")
+texture_pressed = ExtResource("21_o7j4k")
+
+[node name="BtnRight" type="TextureButton" parent="MobileControls/ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -155.0
+offset_right = 214.0
+offset_bottom = -55.0
+grow_vertical = 0
+texture_normal = ExtResource("22_31oqk")
+texture_pressed = ExtResource("23_x7jkp")
+
+[node name="BtnUp" type="TextureButton" parent="MobileControls/ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = -212.0
+offset_right = 152.0
+offset_bottom = -112.0
+grow_vertical = 0
+texture_normal = ExtResource("24_0qwwm")
+texture_pressed = ExtResource("25_t4umt")
+
+[node name="BtnDown" type="TextureButton" parent="MobileControls/ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = -91.0
+offset_right = 163.0
+offset_bottom = 18.0
+grow_vertical = 0
+texture_normal = ExtResource("26_31oqk")
+texture_pressed = ExtResource("27_x7jkp")
+
 [connection signal="coin_collected" from="Player" to="UI" method="_on_player_coin_collected"]
 [connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]
+[connection signal="button_down" from="MobileControls/ControlsRoot/BtnLeft" to="MobileControls/ControlsRoot" method="_on_btn_left_button_down"]
+[connection signal="button_up" from="MobileControls/ControlsRoot/BtnLeft" to="MobileControls/ControlsRoot" method="_on_btn_left_button_up"]
+[connection signal="button_down" from="MobileControls/ControlsRoot/BtnRight" to="MobileControls/ControlsRoot" method="_on_btn_right_button_down"]
+[connection signal="button_up" from="MobileControls/ControlsRoot/BtnRight" to="MobileControls/ControlsRoot" method="_on_btn_right_button_up"]
+[connection signal="button_down" from="MobileControls/ControlsRoot/BtnUp" to="MobileControls/ControlsRoot" method="_on_btn_up_button_down"]
+[connection signal="button_up" from="MobileControls/ControlsRoot/BtnUp" to="MobileControls/ControlsRoot" method="_on_btn_up_button_up"]
+[connection signal="button_down" from="MobileControls/ControlsRoot/BtnDown" to="MobileControls/ControlsRoot" method="_on_btn_down_button_down"]
+[connection signal="button_up" from="MobileControls/ControlsRoot/BtnDown" to="MobileControls/ControlsRoot" method="_on_btn_down_button_up"]

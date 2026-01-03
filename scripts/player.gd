@@ -41,6 +41,7 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		die() # استدعاء دالة الموت الموجودة أصلاً في كودك
 	else:
+		$KillSound.play()
 		start_invincibility() # تفعيل وضع الحماية مؤقتاً
 func start_invincibility():
 	is_invincible = true
@@ -56,13 +57,13 @@ func start_invincibility():
 func _physics_process(delta):
 	var dir := Vector2.ZERO
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("right"):
 		dir = Vector2.RIGHT
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("left"):
 		dir = Vector2.LEFT
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("down"):
 		dir = Vector2.DOWN
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("up"):
 		dir = Vector2.UP
 	
 	if dir != Vector2.ZERO:
@@ -198,7 +199,7 @@ func die():
 	# ننتظر لمدة ثانية واحدة (أو حسب طول أنيميشن القتل عند العدو)
 	# هذا سيعطي وقتاً للعدو لينهي حركة القتل "kill"
 	await get_tree().create_timer(1.0).timeout
-	
+
 	# الآن نعيد تشغيل اللعبة
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	

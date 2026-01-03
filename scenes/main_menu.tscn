@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb60y81jjpxud"]
+[gd_scene load_steps=12 format=3 uid="uid://bb60y81jjpxud"]
 
 [ext_resource type="Script" uid="uid://cxqmcc1ejy5yq" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://cl8iicnixdovg" path="res://assets/Menu/background.jpg" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cmi431cru4i7y" path="res://assets/Menu/game_logo_2.png" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://ts6xjj5ne1p1" path="res://assets/Menu/menu_bg.png" id="2_oa1go"]
 [ext_resource type="AudioStream" uid="uid://b31321akkcufb" path="res://music/Adventure pack 1 ogg/arcade.ogg" id="4_wu84c"]
 [ext_resource type="Script" uid="uid://buma3pviv3sav" path="res://scripts/audio_control.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://dhxn8w1ks0j7" path="res://scripts/fullscreen_control.gd" id="6_rtw2f"]
@@ -15,6 +16,16 @@ thickness = 6
 color = Color(0.25479412, 0.47146314, 0.9876061, 1)
 thickness = 6
 
+[sub_resource type="Gradient" id="Gradient_1nwmf"]
+offsets = PackedFloat32Array(0, 0.62666667)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oa1go"]
+gradient = SubResource("Gradient_1nwmf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -26,7 +37,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="GameBg" type="TextureRect" parent="."]
+modulate = Color(0.40832967, 0.4083294, 0.40832937, 0.8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -83.5
+offset_right = 433.0
+offset_bottom = 347.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oa1go")
+
+[node name="menuBg" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ekxnf")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GameTitle" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -169,6 +195,13 @@ offset_bottom = 248.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Back"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(519.50006, 230.00002)
+scale = Vector2(6.1927094, 1.2327101)
+color = Color(0.9137255, 0.43137255, 0, 1)
+texture = SubResource("GradientTexture2D_oa1go")
+texture_scale = 3.0
 
 [connection signal="pressed" from="MainBtn/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
 [connection signal="pressed" from="MainBtn/SettingsBtn" to="." method="_on_settings_btn_pressed"]
