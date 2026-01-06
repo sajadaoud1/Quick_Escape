@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddixpdp1i0arh"]
+
+[ext_resource type="Texture2D" uid="uid://cnibbcvgi0ftf" path="res://assets/Tiled_files/chest_animation.png" id="1_86quu"]
+[ext_resource type="Script" uid="uid://mxvnnjd4i2l0" path="res://scripts/treasure.gd" id="1_it12x"]
+[ext_resource type="AudioStream" uid="uid://boxvidpjxryax" path="res://music/openbox.mp3" id="3_0g4qu"]
+[ext_resource type="AudioStream" uid="uid://byla82recc2kc" path="res://music/Adventure pack 1 ogg/lock-a-door-411583.mp3" id="4_wqbho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5oxq"]
+atlas = ExtResource("1_86quu")
+region = Rect2(0, 0, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it12x"]
+atlas = ExtResource("1_86quu")
+region = Rect2(0, 0, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g4qu"]
+atlas = ExtResource("1_86quu")
+region = Rect2(0, 46, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqbho"]
+atlas = ExtResource("1_86quu")
+region = Rect2(0, 92, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsoap"]
+atlas = ExtResource("1_86quu")
+region = Rect2(0, 138, 30, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6chw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5oxq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it12x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g4qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqbho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsoap")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd7h6"]
+size = Vector2(20, 24)
+
+[node name="treasure" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_it12x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1.5989581)
+scale = Vector2(1, 0.99139494)
+sprite_frames = SubResource("SpriteFrames_6chw8")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_jd7h6")
+
+[node name="OpenTreasureAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0g4qu")
+
+[node name="LockedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wqbho")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

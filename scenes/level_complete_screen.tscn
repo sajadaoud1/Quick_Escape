@@ -41,7 +41,7 @@ theme_override_constants/separation = 50
 [node name="NextBtn" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Levels"
+text = "Next"
 
 [node name="RetryBtn" type="Button" parent="HBoxContainer"]
 layout_mode = 2

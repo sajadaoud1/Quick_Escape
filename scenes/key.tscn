@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="2_fttkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fttkb"]
-size = Vector2(17.500011, 12.50001)
+size = Vector2(10.555561, 5.555559)
 
 [node name="key" type="Area2D"]
 scale = Vector2(0.9, 0.9)
@@ -12,12 +12,12 @@ collision_mask = 2
 script = ExtResource("1_fttkb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.099999, -3.2249994)
-scale = Vector2(1.8166667, 1.9357142)
+position = Vector2(-9.166666, -6.666666)
+scale = Vector2(0.9722221, 0.95238084)
 texture = ExtResource("2_fttkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.249999, -3.7499993)
+position = Vector2(-9.722221, -7.2222214)
 scale = Vector2(0.99999917, 0.99999917)
 shape = SubResource("RectangleShape2D_fttkb")
 
