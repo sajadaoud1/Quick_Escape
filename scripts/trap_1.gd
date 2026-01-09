@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage := 1
+@export var damage := 5
 @export var up_time := 1.0
 @export var down_time := 1.0
 

@@ -1,12 +1,100 @@
-[gd_scene load_steps=35 format=3 uid="uid://nq08bsoe8dk1"]
+[gd_scene load_steps=61 format=3 uid="uid://nq08bsoe8dk1"]
 
 [ext_resource type="Script" uid="uid://dxnivi1u0l25o" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://scmbfrhb7e7e" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk back - sheet.png" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://buw2vod1kldt3" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://chsbeg8mxlh40" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Tool use back - sheet.png" id="2_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://bcgnneia24r8v" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Tool use front - sheet.png" id="3_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://ccvek2ho5qley" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk side - sheet.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="5_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/lock-a-door-43194.mp3" id="6_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://btsvdygmvp7nq" path="res://music/kill.mp3" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://pex43x6hju1g" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Tool use side - sheet.png" id="4_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/collectable/the_key.png" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://dxqcl8fm5uctk" path="res://music/SFX/lock-a-door-43194.mp3" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://btsvdygmvp7nq" path="res://music/SFX/kill.mp3" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://dueax66icjx3y" path="res://music/SFX/a-massive-axe-impact-hitting-metal-2-450253.mp3" id="11_d2wvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl8cc"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvfe"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy8y"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdfoy"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("3_d2wvv")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5jhy"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holxr"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx1m4"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gjji"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ulf"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e8lb"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gdjj"]
+atlas = ExtResource("4_3v2ag")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_qhqgy")
@@ -112,6 +200,84 @@ region = Rect2(448, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl8cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}],
+"loop": true,
+"name": &"attacking_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4otl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giy8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdfoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpqf")
+}],
+"loop": true,
+"name": &"attacking_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5jhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_holxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx1m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gjji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2ulf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e8lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gdjj")
+}],
+"loop": true,
+"name": &"attacking_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
 }, {
 "duration": 1.0,
@@ -138,6 +304,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -220,10 +391,14 @@ animations = [{
 radius = 19.0
 height = 129.99998
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
+size = Vector2(80.00002, 145.00005)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 scale = Vector2(0.2, 0.2)
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_dqkch")
 attack_range = 50.0
 
@@ -232,7 +407,7 @@ texture_filter = 1
 position = Vector2(77, 82.5)
 scale = Vector2(3.375, 3.578125)
 sprite_frames = SubResource("SpriteFrames_wnwbv")
-animation = &"idle_front"
+animation = &"attacking_back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(76, 75)
@@ -249,5 +424,24 @@ stream = ExtResource("6_tuyoq")
 volume_db = 15.0
 
 [node name="KillSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(24.999998, 89.99999)
 stream = ExtResource("7_fjrip")
 volume_db = 10.0
+
+[node name="AxeSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(24.999998, 89.99999)
+stream = ExtResource("11_d2wvv")
+volume_db = 1.0
+
+[node name="AttackHitBox" type="Area2D" parent="." groups=["player_attack"]]
+position = Vector2(10, 35)
+collision_layer = 4
+collision_mask = 8
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitBox"]
+position = Vector2(69.999985, 39.999996)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_y4r1p")
+
+[connection signal="body_entered" from="AttackHitBox" to="." method="_on_attack_hit_box_body_entered"]

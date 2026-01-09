@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2ffcwtr6hc3m"]
 
-[ext_resource type="Texture2D" uid="uid://blrji7muvpfti" path="res://assets/diamond-sh.png" id="1_0a7ml"]
-[ext_resource type="Script" path="res://scripts/diamond.gd" id="1_okr8r"]
-[ext_resource type="AudioStream" uid="uid://dvgt5tysh3bsa" path="res://music/diamond-found-190255.mp3" id="3_bd64o"]
+[ext_resource type="Texture2D" uid="uid://blrji7muvpfti" path="res://assets/collectable/diamond-sh.png" id="1_0a7ml"]
+[ext_resource type="Script" uid="uid://d2euwcd5ixx2x" path="res://scripts/diamond.gd" id="1_okr8r"]
+[ext_resource type="AudioStream" uid="uid://dvgt5tysh3bsa" path="res://music/SFX/diamond-found-190255.mp3" id="3_bd64o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okr8r"]
 atlas = ExtResource("1_0a7ml")

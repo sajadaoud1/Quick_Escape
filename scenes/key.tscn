@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8h8aygwktwyi"]
 
 [ext_resource type="Script" uid="uid://bdiqfw8kpqie1" path="res://scripts/key.gd" id="1_fttkb"]
-[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/the_key.png" id="2_fttkb"]
+[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/collectable/the_key.png" id="2_fttkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fttkb"]
 size = Vector2(10.555561, 5.555559)

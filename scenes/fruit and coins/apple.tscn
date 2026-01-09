@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://bsefliqwia6wt"]
 
 [ext_resource type="Script" uid="uid://bworg4hkosscc" path="res://scripts/apple.gd" id="1_7vr8k"]
-[ext_resource type="Texture2D" uid="uid://brr1acjcnfdpv" path="res://assets/Apple.png" id="1_h071m"]
-[ext_resource type="AudioStream" uid="uid://j42kq3c4dr62" path="res://music/apple_bite.ogg" id="3_3dmh2"]
+[ext_resource type="Texture2D" uid="uid://brr1acjcnfdpv" path="res://assets/collectable/Apple.png" id="1_h071m"]
+[ext_resource type="AudioStream" uid="uid://j42kq3c4dr62" path="res://music/SFX/apple_bite.ogg" id="3_3dmh2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vr8k"]
 atlas = ExtResource("1_h071m")

@@ -3,22 +3,24 @@ extends CanvasLayer
 @onready var menu_options: Panel = $MenuOptions
 @onready var timer_label: Label = $TimerLabel
 @onready var level_timer: Timer = $LevelTimer
-@onready var hearts_container: HBoxContainer = $HeartsContainer2
 @onready var coin_counter = $CoinCounter 
+@onready var progress_bar: ProgressBar = $ProgressBar
+var max_health = 50
 
 func _ready() -> void:
 	get_tree().paused = false
 	menu_options.visible = false
 	level_timer.start()
-	
+	progress_bar.max_value = max_health
+	progress_bar.value = max_health
 	var total = get_tree().get_nodes_in_group("coins").size()
 
 func _process(_delta):
 	timer_label.text = "Time: " + str(ceil(level_timer.time_left))
 
 func _on_player_health_changed(current_health: int) -> void:
-	hearts_container.update_hearts(current_health, 3) 
-
+	progress_bar.value = current_health
+	
 func _on_menu_icon_pressed() -> void:
 	menu_options.visible = !menu_options.visible
 	get_tree().paused = menu_options.visible

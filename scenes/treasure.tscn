@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnibbcvgi0ftf" path="res://assets/Tiled_files/chest_animation.png" id="1_86quu"]
 [ext_resource type="Script" uid="uid://mxvnnjd4i2l0" path="res://scripts/treasure.gd" id="1_it12x"]
-[ext_resource type="AudioStream" uid="uid://boxvidpjxryax" path="res://music/openbox.mp3" id="3_0g4qu"]
+[ext_resource type="AudioStream" uid="uid://boxvidpjxryax" path="res://music/SFX/openbox.mp3" id="3_0g4qu"]
 [ext_resource type="AudioStream" uid="uid://byla82recc2kc" path="res://music/Adventure pack 1 ogg/lock-a-door-411583.mp3" id="4_wqbho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5oxq"]

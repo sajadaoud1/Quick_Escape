@@ -1,7 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cchi3xpsu0u32"]
 
-[ext_resource type="Texture2D" uid="uid://cw06toe7cyw8n" path="res://assets/Pixel Heart full - Copy.png" id="1_x0egl"]
-[ext_resource type="Script" uid="uid://dmpsl7so4xtbc" path="res://scripts/heart_gui.gd" id="2_x0egl"]
+[ext_resource type="Texture2D" uid="uid://cw06toe7cyw8n" path="res://assets/Menu/Pixel Heart full - Copy.png" id="1_x0egl"]
+
+[sub_resource type="GDScript" id="GDScript_l0qp3"]
+script/source = "extends TextureRect
+# اسحب صور القلوب هنا من الـ FileSystem إلى الكود
+var heart_full = preload(\"res://assets/Pixel Heart full - Copy.png\") 
+var heart_empty = preload(\"res://assets/Pixel Heart Empty.png\")
+
+func update(whole: bool):
+	if whole:
+		texture = heart_full
+	else:
+		texture = heart_empty
+"
 
 [node name="HeartGui" type="TextureRect"]
 custom_minimum_size = Vector2(32, 32)
@@ -10,4 +22,4 @@ offset_bottom = 187.0
 texture = ExtResource("1_x0egl")
 expand_mode = 1
 stretch_mode = 5
-script = ExtResource("2_x0egl")
+script = SubResource("GDScript_l0qp3")

@@ -23,6 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 func open():
 	is_open = true
 	anim.play("open")
+	await get_tree().create_timer(1).timeout 
 	spawn_diamond()
 
 func spawn_diamond():

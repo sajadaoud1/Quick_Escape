@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://c1a5fc5ffa64j"]
 
 [ext_resource type="Script" uid="uid://piiw3j3yp2ye" path="res://scripts/melon.gd" id="1_1xno5"]
-[ext_resource type="Texture2D" uid="uid://cpg7irc43d0vc" path="res://assets/Melon.png" id="1_hrpgp"]
-[ext_resource type="AudioStream" uid="uid://j42kq3c4dr62" path="res://music/apple_bite.ogg" id="3_38q2s"]
+[ext_resource type="Texture2D" uid="uid://cpg7irc43d0vc" path="res://assets/collectable/Melon.png" id="1_hrpgp"]
+[ext_resource type="AudioStream" uid="uid://j42kq3c4dr62" path="res://music/SFX/apple_bite.ogg" id="3_38q2s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xno5"]
 atlas = ExtResource("1_hrpgp")

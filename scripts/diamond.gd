@@ -11,7 +11,11 @@ func _on_body_entered(body):
 		collision_layer = 0
 		collision_mask = 0
 
-		if has_node("/root/Goal"):
-			Goal.level_completed()
+		var door = get_tree().get_first_node_in_group("final_door")
+		if door:
+			print("diamond taken")
+			door.open_door()
+		else:
+			print("ERROR: final_door not found")
 
 		queue_free()
