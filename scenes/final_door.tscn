@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://voxvh2u5mggn"]
+
+[ext_resource type="Script" uid="uid://dp1jkb3hfji06" path="res://scripts/final_door.gd" id="1_tkbsy"]
+[ext_resource type="Texture2D" uid="uid://c666isrbrvyut" path="res://assets/Tiled_files/doors_lever_chest_animation.png" id="2_tkbsy"]
+[ext_resource type="AudioStream" uid="uid://d3yw2sqwopmxo" path="res://music/SFX/open-door-stock-sfx-454246.mp3" id="3_tkbsy"]
+[ext_resource type="AudioStream" uid="uid://byla82recc2kc" path="res://music/Adventure pack 1 ogg/lock-a-door-411583.mp3" id="4_w0r3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkkx8"]
+atlas = ExtResource("2_tkbsy")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrm8u"]
+atlas = ExtResource("2_tkbsy")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob2rc"]
+atlas = ExtResource("2_tkbsy")
+region = Rect2(32, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noa4q"]
+atlas = ExtResource("2_tkbsy")
+region = Rect2(32, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7tb6"]
+atlas = ExtResource("2_tkbsy")
+region = Rect2(32, 192, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ju5n0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkkx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrm8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob2rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noa4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7tb6")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
+size = Vector2(39, 38)
+
+[node name="final_door" type="Area2D" groups=["final_door"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_tkbsy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ju5n0")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_uvdjg")
+
+[node name="OpendoorSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tkbsy")
+volume_db = 20.0
+
+[node name="ClosedoorSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w0r3c")
+volume_db = 20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
