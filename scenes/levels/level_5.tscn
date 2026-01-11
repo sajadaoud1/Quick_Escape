@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://deteiqhhsr00s"]
+[gd_scene load_steps=66 format=4 uid="uid://deteiqhhsr00s"]
 
 [ext_resource type="Script" uid="uid://257efro2bcii" path="res://scripts/level_2.gd" id="1_1nwmf"]
 [ext_resource type="Texture2D" uid="uid://dtwe18nnolta8" path="res://assets/Tiled_files/decorative_cracks_floor.png" id="2_5f5xw"]
@@ -17,15 +17,7 @@
 [ext_resource type="Script" uid="uid://etnparax7obp" path="res://scripts/goal.gd" id="15_gtyp3"]
 [ext_resource type="PackedScene" uid="uid://blv7lvtoda8wt" path="res://scenes/ui.tscn" id="16_n7m6w"]
 [ext_resource type="PackedScene" uid="uid://oug24pwvv3ke" path="res://scenes/fruit and coins/coin_counter.tscn" id="17_ju8vr"]
-[ext_resource type="Script" uid="uid://cac00dxcdhisv" path="res://scripts/controls_root.gd" id="17_orjhg"]
-[ext_resource type="Texture2D" uid="uid://c5m8rxrtgu3sr" path="res://assets/Menu/arrowLeft.png" id="18_3j2bn"]
-[ext_resource type="Texture2D" uid="uid://cpy023f7mc134" path="res://assets/Menu/arrowLeftD.png" id="19_lolfx"]
-[ext_resource type="Texture2D" uid="uid://ma57r5hto5oe" path="res://assets/Menu/arrowRight.png" id="20_004to"]
-[ext_resource type="Texture2D" uid="uid://bgnglpqupb6lc" path="res://assets/Menu/arrowRightD.png" id="21_e0v1o"]
-[ext_resource type="Texture2D" uid="uid://dlh1jk14n4whq" path="res://assets/Menu/arrowUp.png" id="22_idth2"]
-[ext_resource type="Texture2D" uid="uid://blqokw0b5k6jp" path="res://assets/Menu/arrowUpD.png" id="23_gg75w"]
-[ext_resource type="Texture2D" uid="uid://bne7ms4dm7wu4" path="res://assets/Menu/arrowDown.png" id="24_n1pyt"]
-[ext_resource type="Texture2D" uid="uid://iqcn8fuid5sj" path="res://assets/Menu/arrowDownD.png" id="25_t4lb3"]
+[ext_resource type="PackedScene" uid="uid://xxsc37yj8x3m" path="res://scenes/mobile_controls.tscn" id="18_e0v1o"]
 [ext_resource type="PackedScene" uid="uid://dfqomqmwgmwgx" path="res://scenes/fruit and coins/coin.tscn" id="27_lolfx"]
 [ext_resource type="PackedScene" uid="uid://ddixpdp1i0arh" path="res://scenes/treasure.tscn" id="28_2vq5a"]
 [ext_resource type="PackedScene" uid="uid://c6u7hyh8th5hy" path="res://scenes/Traps and enemies/enemy_s.tscn" id="28_t4lb3"]
@@ -8277,69 +8269,7 @@ offset_top = 38.0
 offset_right = 85.0
 offset_bottom = 78.0
 
-[node name="MobileControls" type="CanvasLayer" parent="."]
-
-[node name="ControlsRoot" type="Control" parent="MobileControls"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("17_orjhg")
-
-[node name="BtnLeft" type="TextureButton" parent="MobileControls/ControlsRoot"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -155.0
-offset_right = 87.0
-offset_bottom = -55.0
-grow_vertical = 0
-texture_normal = ExtResource("18_3j2bn")
-texture_pressed = ExtResource("19_lolfx")
-
-[node name="BtnRight" type="TextureButton" parent="MobileControls/ControlsRoot"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 114.0
-offset_top = -155.0
-offset_right = 214.0
-offset_bottom = -55.0
-grow_vertical = 0
-texture_normal = ExtResource("20_004to")
-texture_pressed = ExtResource("21_e0v1o")
-
-[node name="BtnUp" type="TextureButton" parent="MobileControls/ControlsRoot"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -212.0
-offset_right = 152.0
-offset_bottom = -112.0
-grow_vertical = 0
-texture_normal = ExtResource("22_idth2")
-texture_pressed = ExtResource("23_gg75w")
-
-[node name="BtnDown" type="TextureButton" parent="MobileControls/ControlsRoot"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -91.0
-offset_right = 163.0
-offset_bottom = 18.0
-grow_vertical = 0
-texture_normal = ExtResource("24_n1pyt")
-texture_pressed = ExtResource("25_t4lb3")
+[node name="MobileControls" parent="." instance=ExtResource("18_e0v1o")]
 
 [node name="coins" type="Node" parent="."]
 
@@ -8553,11 +8483,3 @@ position = Vector2(1, -56)
 
 [connection signal="coin_collected" from="Player" to="UI" method="_on_player_coin_collected"]
 [connection signal="health_changed" from="Player" to="UI" method="_on_player_health_changed"]
-[connection signal="button_down" from="MobileControls/ControlsRoot/BtnLeft" to="MobileControls/ControlsRoot" method="_on_btn_left_button_down"]
-[connection signal="button_up" from="MobileControls/ControlsRoot/BtnLeft" to="MobileControls/ControlsRoot" method="_on_btn_left_button_up"]
-[connection signal="button_down" from="MobileControls/ControlsRoot/BtnRight" to="MobileControls/ControlsRoot" method="_on_btn_right_button_down"]
-[connection signal="button_up" from="MobileControls/ControlsRoot/BtnRight" to="MobileControls/ControlsRoot" method="_on_btn_right_button_up"]
-[connection signal="button_down" from="MobileControls/ControlsRoot/BtnUp" to="MobileControls/ControlsRoot" method="_on_btn_up_button_down"]
-[connection signal="button_up" from="MobileControls/ControlsRoot/BtnUp" to="MobileControls/ControlsRoot" method="_on_btn_up_button_up"]
-[connection signal="button_down" from="MobileControls/ControlsRoot/BtnDown" to="MobileControls/ControlsRoot" method="_on_btn_down_button_down"]
-[connection signal="button_up" from="MobileControls/ControlsRoot/BtnDown" to="MobileControls/ControlsRoot" method="_on_btn_down_button_up"]

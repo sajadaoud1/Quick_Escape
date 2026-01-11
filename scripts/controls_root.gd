@@ -16,18 +16,14 @@ func _on_btn_left_button_down() -> void:
 func _on_btn_right_button_down() -> void:
 	Input.action_press("right")
 
-
 func _on_btn_right_button_up() -> void:
 	Input.action_release("right")
-
 
 func _on_btn_up_button_down() -> void:
 	Input.action_press("up")
 
-
 func _on_btn_up_button_up() -> void:
 	Input.action_release("up")
-
 
 func _on_btn_down_button_down() -> void:
 	Input.action_press("down")
@@ -35,3 +31,9 @@ func _on_btn_down_button_down() -> void:
 
 func _on_btn_down_button_up() -> void:
 	Input.action_release("down")
+
+func _on_attack_btn_button_down() -> void:
+	Input.action_press("attack")
+
+func _on_attack_btn_button_up() -> void:
+	Input.action_release("attack")

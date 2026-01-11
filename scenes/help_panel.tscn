@@ -1,0 +1,445 @@
+[gd_scene load_steps=29 format=3 uid="uid://le6vc8wc8007"]
+
+[ext_resource type="Texture2D" uid="uid://ma57r5hto5oe" path="res://assets/Menu/arrowRight.png" id="1_0phst"]
+[ext_resource type="Script" uid="uid://cof8sb8kuvh6f" path="res://scripts/help_panel.gd" id="1_qqh8e"]
+[ext_resource type="Texture2D" uid="uid://bgnglpqupb6lc" path="res://assets/Menu/arrowRightD.png" id="2_qdojy"]
+[ext_resource type="Texture2D" uid="uid://buw2vod1kldt3" path="res://assets/Main Characters/MaleCharacters/002/Animation - sprite sheets/002 Walk front - sheet.png" id="3_qdojy"]
+[ext_resource type="Texture2D" uid="uid://cqi1n0per53e6" path="res://assets/collectable/Star.png" id="5_bvaco"]
+[ext_resource type="Texture2D" uid="uid://c5m8rxrtgu3sr" path="res://assets/Menu/arrowLeft.png" id="6_iyc4r"]
+[ext_resource type="Texture2D" uid="uid://cpy023f7mc134" path="res://assets/Menu/arrowLeftD.png" id="7_x013k"]
+[ext_resource type="Texture2D" uid="uid://cnibbcvgi0ftf" path="res://assets/Tiled_files/chest_animation.png" id="8_rwqnb"]
+[ext_resource type="Texture2D" uid="uid://blrji7muvpfti" path="res://assets/collectable/diamond-sh.png" id="9_7xfi7"]
+[ext_resource type="Texture2D" uid="uid://c666isrbrvyut" path="res://assets/Tiled_files/doors_lever_chest_animation.png" id="10_hfyht"]
+[ext_resource type="Texture2D" uid="uid://uyjiy47ivh06" path="res://assets/collectable/the_key.png" id="11_jypoi"]
+[ext_resource type="Texture2D" uid="uid://brr1acjcnfdpv" path="res://assets/collectable/Apple.png" id="12_hfyht"]
+[ext_resource type="Texture2D" uid="uid://cpg7irc43d0vc" path="res://assets/collectable/Melon.png" id="13_jypoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqh8e"]
+bg_color = Color(0.21894553, 0.25491247, 0.2756691, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xcf2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7w2n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqh8e"]
+atlas = ExtResource("3_qdojy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhkuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqh8e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfbkq"]
+atlas = ExtResource("8_rwqnb")
+region = Rect2(0, 0, 30, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0x4oc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfbkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x4oc"]
+atlas = ExtResource("9_7xfi7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p014d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x4oc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlswm"]
+atlas = ExtResource("10_hfyht")
+region = Rect2(96, 96, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1gh6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlswm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wben"]
+atlas = ExtResource("12_hfyht")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1pcd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wben")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p014d"]
+atlas = ExtResource("13_jypoi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wlswm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p014d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HelpPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qqh8e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -139.5
+offset_right = 231.5
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqh8e")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 165.5
+offset_top = 1.5
+offset_right = 292.5
+offset_bottom = 66.5
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1xcf2")
+text = "Instructions
+"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 118.5
+offset_top = 119.5
+offset_right = 356.5
+offset_bottom = 182.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7w2n5")
+text = "Use the arrow keys to move.
+Press Space to attack."
+
+[node name="ContinueButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 201.5
+offset_right = 265.5
+offset_bottom = 253.5
+theme_override_font_sizes/font_size = 21
+text = "Start"
+
+[node name="RightBtn1" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 319.5
+offset_top = 174.5
+offset_right = 419.5
+offset_bottom = 274.5
+texture_normal = ExtResource("1_0phst")
+texture_pressed = ExtResource("2_qdojy")
+texture_hover = ExtResource("2_qdojy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(222.74998, 79.25)
+scale = Vector2(1.5703132, 1.5078125)
+sprite_frames = SubResource("SpriteFrames_mhkuu")
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -139.5
+offset_right = 231.5
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqh8e")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 165.5
+offset_top = 1.5
+offset_right = 292.5
+offset_bottom = 66.5
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1xcf2")
+text = "Instructions
+"
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/Label"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 57.0
+offset_right = 34.0
+offset_bottom = 124.0
+texture = ExtResource("5_bvaco")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel2/Label"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 61.0
+offset_right = 131.0
+offset_bottom = 123.0
+texture = ExtResource("5_bvaco")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel2/Label"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 34.0
+offset_right = 83.0
+offset_bottom = 96.0
+texture = ExtResource("5_bvaco")
+
+[node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 120.5
+offset_top = 138.5
+offset_right = 358.5
+offset_bottom = 201.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7w2n5")
+text = "collect the coins to get stars "
+
+[node name="ContinueButton" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 201.5
+offset_right = 265.5
+offset_bottom = 253.5
+theme_override_font_sizes/font_size = 21
+text = "Start"
+
+[node name="RightBtn2" type="TextureButton" parent="Panel2"]
+layout_mode = 0
+offset_left = 317.5
+offset_top = 173.5
+offset_right = 417.5
+offset_bottom = 273.5
+texture_normal = ExtResource("1_0phst")
+texture_pressed = ExtResource("2_qdojy")
+texture_hover = ExtResource("2_qdojy")
+
+[node name="BackBtn1" type="TextureButton" parent="Panel2"]
+layout_mode = 0
+offset_left = 41.5
+offset_top = 176.5
+offset_right = 141.5
+offset_bottom = 276.5
+texture_normal = ExtResource("6_iyc4r")
+texture_pressed = ExtResource("7_x013k")
+texture_hover = ExtResource("7_x013k")
+
+[node name="Panel3" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -139.5
+offset_right = 231.5
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqh8e")
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 165.5
+offset_top = 1.5
+offset_right = 292.5
+offset_bottom = 66.5
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1xcf2")
+text = "Instructions
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel3"]
+position = Vector2(183.5, 82.625)
+scale = Vector2(1.8666668, 1.9021741)
+sprite_frames = SubResource("SpriteFrames_0x4oc")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Panel3"]
+position = Vector2(268.5, 78.75)
+scale = Vector2(1.3749993, 1.359375)
+sprite_frames = SubResource("SpriteFrames_p014d")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Panel3"]
+position = Vector2(349.5, 77.5)
+scale = Vector2(1.34375, 1.25)
+sprite_frames = SubResource("SpriteFrames_p1gh6")
+
+[node name="TextureRect" type="TextureRect" parent="Panel3"]
+layout_mode = 0
+offset_left = 75.5
+offset_top = 70.5
+offset_right = 114.5
+offset_bottom = 89.5
+texture = ExtResource("11_jypoi")
+
+[node name="Label2" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 37.5
+offset_top = 112.5
+offset_right = 445.5
+offset_bottom = 187.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7w2n5")
+text = "You have one minute to complete the mission.
+Find the key, open the treasure, collect the diamond,
+and escape through the door."
+
+[node name="ContinueButton" type="Button" parent="Panel3"]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 201.5
+offset_right = 265.5
+offset_bottom = 253.5
+theme_override_font_sizes/font_size = 21
+text = "Start"
+
+[node name="BackBtn2" type="TextureButton" parent="Panel3"]
+layout_mode = 0
+offset_left = 41.5
+offset_top = 176.5
+offset_right = 141.5
+offset_bottom = 276.5
+texture_normal = ExtResource("6_iyc4r")
+texture_pressed = ExtResource("7_x013k")
+texture_hover = ExtResource("7_x013k")
+
+[node name="RightBtn3" type="TextureButton" parent="Panel3"]
+layout_mode = 0
+offset_left = 317.5
+offset_top = 173.5
+offset_right = 417.5
+offset_bottom = 273.5
+texture_normal = ExtResource("1_0phst")
+texture_pressed = ExtResource("2_qdojy")
+texture_hover = ExtResource("2_qdojy")
+
+[node name="Panel4" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -139.5
+offset_right = 231.5
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqh8e")
+
+[node name="Label" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = 165.5
+offset_top = 1.5
+offset_right = 292.5
+offset_bottom = 66.5
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1xcf2")
+text = "Instructions
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel4"]
+texture_filter = 1
+position = Vector2(185, 78.50001)
+scale = Vector2(2.4687498, 2.3749998)
+sprite_frames = SubResource("SpriteFrames_1pcd2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Panel4"]
+texture_filter = 1
+position = Vector2(277.5, 79.00001)
+scale = Vector2(2.0000005, 1.9687506)
+sprite_frames = SubResource("SpriteFrames_wlswm")
+
+[node name="Label2" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = 37.5
+offset_top = 112.5
+offset_right = 445.5
+offset_bottom = 187.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7w2n5")
+text = "Collect fruits to gain extra time.
+Apples add 5 seconds, and melons add 2 seconds."
+
+[node name="ContinueButton" type="Button" parent="Panel4"]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 201.5
+offset_right = 265.5
+offset_bottom = 253.5
+theme_override_font_sizes/font_size = 21
+text = "Start"
+
+[node name="BackBtn3" type="TextureButton" parent="Panel4"]
+layout_mode = 0
+offset_left = 41.5
+offset_top = 176.5
+offset_right = 141.5
+offset_bottom = 276.5
+texture_normal = ExtResource("6_iyc4r")
+texture_pressed = ExtResource("7_x013k")
+texture_hover = ExtResource("7_x013k")
+
+[connection signal="pressed" from="Panel/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel/RightBtn1" to="." method="_on_right_btn_1_pressed"]
+[connection signal="pressed" from="Panel2/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel2/RightBtn2" to="." method="_on_right_btn_2_pressed"]
+[connection signal="pressed" from="Panel2/BackBtn1" to="." method="_on_back_btn_1_pressed"]
+[connection signal="pressed" from="Panel3/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel3/BackBtn2" to="." method="_on_back_btn_2_pressed"]
+[connection signal="pressed" from="Panel3/RightBtn3" to="." method="_on_right_btn_3_pressed"]
+[connection signal="pressed" from="Panel4/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel4/BackBtn3" to="." method="_on_back_btn_3_pressed"]

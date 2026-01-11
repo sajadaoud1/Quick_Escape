@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*res://scripts/GameData.gd"
-Levelmanager="*res://scripts/levelmanager.gd"
 Goal="*res://scripts/goal.gd"
 FinalDoor="*res://scripts/final_door.gd"
 

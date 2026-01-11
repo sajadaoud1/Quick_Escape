@@ -24,7 +24,11 @@ func _ready():
 	await get_tree().process_frame
 	health_changed.emit(current_health)
 	attack_hitbox.monitoring = false
-	
+
+func _process(_delta):
+	if Input.is_action_just_pressed("attack"):
+		attack()
+
 func take_damage(amount: int):
 	if is_invincible:
 		return
@@ -52,7 +56,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-
+	
 	var dir := Vector2.ZERO
 	
 	if Input.is_action_pressed("right"):
@@ -115,7 +119,6 @@ func remove_key():
 	
 func collect_diamond():
 	diamonds += 1
-	print("Diamonds:", diamonds)
 
 func collect_coin():
 	GameData.level_coins_collected += 1
@@ -135,10 +138,6 @@ func add_time(amount: int):
 	var ui = get_parent().get_node_or_null("UI")
 	if ui and ui.has_method("add_time"):
 		ui.add_time(amount)
-		
-func _input(event):
-	if event.is_action_pressed("attack"):
-		attack()
 
 func attack():
 	if is_attacking:
@@ -147,7 +146,6 @@ func attack():
 	is_attacking = true
 
 	# play animation
-	print("ATTACK")
 	play_attack_animation()
 
 	# enable hitbox
@@ -160,6 +158,5 @@ func attack():
 	is_attacking = false
 
 func _on_attack_hit_box_body_entered(body: Node2D) -> void:
-	print("HIT:", body.name)
 	if body.is_in_group("enemy"):
 		body.die()

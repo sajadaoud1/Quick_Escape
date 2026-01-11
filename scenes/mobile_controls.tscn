@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://xxsc37yj8x3m"]
+
+[ext_resource type="Script" uid="uid://cac00dxcdhisv" path="res://scripts/controls_root.gd" id="1_kth8y"]
+[ext_resource type="Texture2D" uid="uid://c5m8rxrtgu3sr" path="res://assets/Menu/arrowLeft.png" id="2_k6aum"]
+[ext_resource type="Texture2D" uid="uid://cpy023f7mc134" path="res://assets/Menu/arrowLeftD.png" id="3_cnqve"]
+[ext_resource type="Texture2D" uid="uid://ma57r5hto5oe" path="res://assets/Menu/arrowRight.png" id="4_kffq0"]
+[ext_resource type="Texture2D" uid="uid://bgnglpqupb6lc" path="res://assets/Menu/arrowRightD.png" id="5_bswi6"]
+[ext_resource type="Texture2D" uid="uid://dlh1jk14n4whq" path="res://assets/Menu/arrowUp.png" id="6_ilxsp"]
+[ext_resource type="Texture2D" uid="uid://blqokw0b5k6jp" path="res://assets/Menu/arrowUpD.png" id="7_saaj3"]
+[ext_resource type="Texture2D" uid="uid://bne7ms4dm7wu4" path="res://assets/Menu/arrowDown.png" id="8_jnbrs"]
+[ext_resource type="Texture2D" uid="uid://iqcn8fuid5sj" path="res://assets/Menu/arrowDownD.png" id="9_bdd5e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfnpk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvtie"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="ControlsRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kth8y")
+
+[node name="BtnLeft" type="TextureButton" parent="ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 917.0
+offset_top = -157.0
+offset_right = 1017.0
+offset_bottom = -57.0
+grow_vertical = 0
+texture_normal = ExtResource("2_k6aum")
+texture_pressed = ExtResource("3_cnqve")
+
+[node name="BtnRight" type="TextureButton" parent="ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1060.0
+offset_top = -157.0
+offset_right = 1160.0
+offset_bottom = -57.0
+grow_vertical = 0
+texture_normal = ExtResource("4_kffq0")
+texture_pressed = ExtResource("5_bswi6")
+
+[node name="BtnUp" type="TextureButton" parent="ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 993.0
+offset_top = -221.0
+offset_right = 1093.0
+offset_bottom = -121.0
+grow_vertical = 0
+texture_normal = ExtResource("6_ilxsp")
+texture_pressed = ExtResource("7_saaj3")
+
+[node name="BtnDown" type="TextureButton" parent="ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 994.0
+offset_top = -89.0
+offset_right = 1105.0
+offset_bottom = 20.0
+grow_vertical = 0
+texture_normal = ExtResource("8_jnbrs")
+texture_pressed = ExtResource("9_bdd5e")
+
+[node name="AttackBtn" type="Button" parent="ControlsRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -119.0
+offset_right = 123.0
+offset_bottom = -23.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfnpk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvtie")
+
+[connection signal="button_down" from="ControlsRoot/BtnLeft" to="ControlsRoot" method="_on_btn_left_button_down"]
+[connection signal="button_up" from="ControlsRoot/BtnLeft" to="ControlsRoot" method="_on_btn_left_button_up"]
+[connection signal="button_down" from="ControlsRoot/BtnRight" to="ControlsRoot" method="_on_btn_right_button_down"]
+[connection signal="button_up" from="ControlsRoot/BtnRight" to="ControlsRoot" method="_on_btn_right_button_up"]
+[connection signal="button_down" from="ControlsRoot/BtnUp" to="ControlsRoot" method="_on_btn_up_button_down"]
+[connection signal="button_up" from="ControlsRoot/BtnUp" to="ControlsRoot" method="_on_btn_up_button_up"]
+[connection signal="button_down" from="ControlsRoot/BtnDown" to="ControlsRoot" method="_on_btn_down_button_down"]
+[connection signal="button_up" from="ControlsRoot/BtnDown" to="ControlsRoot" method="_on_btn_down_button_up"]
+[connection signal="button_down" from="ControlsRoot/AttackBtn" to="ControlsRoot" method="_on_attack_btn_button_down"]
+[connection signal="button_up" from="ControlsRoot/AttackBtn" to="ControlsRoot" method="_on_attack_btn_button_up"]

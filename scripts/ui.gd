@@ -8,7 +8,6 @@ extends CanvasLayer
 var max_health = 50
 
 func _ready() -> void:
-	get_tree().paused = false
 	menu_options.visible = false
 	level_timer.start()
 	progress_bar.max_value = max_health
